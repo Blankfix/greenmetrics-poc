@@ -10,7 +10,7 @@
         )
 
       v-col.mb-4
-        h1.display-2.font-weight-bold.mb-3 Welcome to Vuetify
+        h1.display-2.font-weight-bold.mb-3 Greenjection
 
         p.subheading.font-weight-regular For help and collaboration with other Vuetify developers,
           | please join our online
