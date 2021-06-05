@@ -1,0 +1,16 @@
+.v-application a {
+  color: #62cc75; }
+
+h2 {
+  font-size: 60px;
+  font-weight: 300; }
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.4;
+  margin: 10px 0;
+  color: var(--v-theme-green); }
+
+/*# sourceMappingURL=variables.css.map */
