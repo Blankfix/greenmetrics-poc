@@ -17,7 +17,7 @@
 
       // Cards component section.
       // Child single vue requires "card-icon" prop and is filled by a "cardContent" slot
-      card-wrapper
+      card-wrapper( desktop-cols=4 )
 
 
       v-row.home-pleas(align="center")

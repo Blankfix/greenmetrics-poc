@@ -33,8 +33,17 @@ import CardSingle from  './CardSingle'
 
 export default {
   name: 'CardWrapper',
+
+  props: {
+    desktopCols : {
+      type: [Number, String],
+      default () {
+        return this.cardIcon;
+      }},
+  },
+
   components: {
-    CardSingle
+    CardSingle,
   },
 }
 </script>

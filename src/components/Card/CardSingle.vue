@@ -1,6 +1,6 @@
 <template lang="pug">
 
-      v-col(cols="12" md="4")
+      v-col(cols="12" :md="parseInt($parent.desktopCols)")
         div.text-center
           v-icon mdi-{{cardIcon}}
         slot( name="cardContent" )
@@ -17,7 +17,7 @@ export default {
       required: true,
       default () {
         return this.cardIcon;
-      }}
+      }},
   }
 }
 </script>
