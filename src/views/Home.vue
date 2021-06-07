@@ -15,28 +15,9 @@
 
       v-divider.half
 
-      v-scale-transition( mode="in-out" appear )
-        v-row.std-cards
-          v-col(cols="12" md="4")
-            div.text-center
-              v-icon mdi-chart-bar
-            h4 Bilan GES et fiscalité écologique
-            p Reporting et analyse de votre situation par rapport à votre secteur d'activité.
-            p Audit et proposition de plans d'action pour réduire votre empreinte carbone.
-
-          v-col(cols="12" md="4")
-            div.text-center
-              v-icon mdi-scale-balance
-            h4 Compensez vos émissions CO²
-            p Votre secteur peut être polluant de par sa nature, et vous risquez des pénalités et taxes.
-            p Choisissez d'agir de manière responsable, anticipez, et soutenez des projets verts.
-
-          v-col(cols="12" md="4")
-            div.text-center
-              v-icon.secon mdi-check-decagram
-            h4 Labellisation et RSE
-            p Bcorp, LUCIE, Engagé RSE, ces labels rayonnent en France et à l'international comme des gages de confiance et d'engagement.
-            p L'image de votre entreprise : votre  meilleure carte de visite
+      // Cards component section.
+      // Child single vue requires "card-icon" prop and is filled by a "cardContent" slot
+      card-wrapper
 
 
       v-row.home-pleas(align="center")
@@ -165,7 +146,8 @@
 </template>
 
 <script lang="ts">
-import FormRegisterAndSignIn from '../components/FormRegisterAndSignIn';
+import FormRegisterAndSignIn from '../components/FormRegisterAndSignIn'
+import CardWrapper from '../components/Card/CardWrapper'
 
   export default {
     name: 'Home',
@@ -208,7 +190,8 @@ import FormRegisterAndSignIn from '../components/FormRegisterAndSignIn';
     },
 
     components: {
-      FormRegisterAndSignIn
+      FormRegisterAndSignIn,
+      CardWrapper
     },
   }
 </script>
@@ -243,30 +226,6 @@ $secondaryColor: #2e3842;
   }
 }
 
-.std-cards, .home-pleas{
-  padding: 0 0 50px;
-}
-
-.std-cards{
-  padding-top: 60px;
-
-  >div{
-    padding:0 20px;
-  }
-
-  h4,p{
-    opacity: 0.5;
-  }
-  h4{
-    font-size:24px;
-  }
-  .v-icon.v-icon{
-    color: var(--v-secondary-base);
-    color: $secondaryColor;
-    font-size: 80px;
-    padding-bottom: 20px;
-  }
-}
 .home-pleas{
   padding:50px 0;
 }

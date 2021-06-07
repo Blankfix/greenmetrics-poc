@@ -62,140 +62,142 @@
               v-icon mdi-{{ socialLink.icon }}
 </template>
 
-<script>
-export default {
-  name: 'TheFooter',
+<script lang="ts">
+  export default {
+    name: 'TheFooter',
 
-  data: () => ({
-    footerLinksLeft: [
-      {
-        text: 'Greenjection',
-        href: '/',
-      },
-      {
-        text: 'A propos',
-        href: '/',
-      },
-      {
-        text: 'FAQ',
-        href: '/',
-      },
-      {
-        text: 'Mentions légales',
-        href: '/',
-      },
-    ],
-    footerLinksRight: [
-      {
-        text: 'Ouvrir un compte',
-        href: '/',
-      },
-      {
-        text: 'Se connecter',
-        href: '/',
-      },
-      {
-        text: 'Proposer un projet',
-        href: '/',
-      },
-      {
-        text: 'Nous contacter',
-        href: '/',
-      },
-    ],
-    footerSocials: [
-      {
-        icon: 'facebook',
-        href: '/',
-      },
-      {
-        icon: 'twitter',
-        href: '/',
-      },
-      {
-        icon: 'instagram',
-        href: '/',
-      },
-      {
-        icon: 'linkedin',
-        href: '/',
-      },
-    ],
-  }),
-}
+    data: () => ({
+      footerLinksLeft: [
+        {
+          text: 'Greenjection',
+          href: '/',
+        },
+        {
+          text: 'A propos',
+          href: '/',
+        },
+        {
+          text: 'FAQ',
+          href: '/',
+        },
+        {
+          text: 'Mentions légales',
+          href: '/',
+        },
+      ],
+      footerLinksRight: [
+        {
+          text: 'Ouvrir un compte',
+          href: '/',
+        },
+        {
+          text: 'Se connecter',
+          href: '/',
+        },
+        {
+          text: 'Proposer un projet',
+          href: '/',
+        },
+        {
+          text: 'Nous contacter',
+          href: '/',
+        },
+      ],
+      footerSocials: [
+        {
+          icon: 'facebook',
+          href: '/',
+        },
+        {
+          icon: 'twitter',
+          href: '/',
+        },
+        {
+          icon: 'instagram',
+          href: '/',
+        },
+        {
+          icon: 'linkedin',
+          href: '/',
+        },
+      ],
+    }),
+  }
 </script>
+
 <style lang="scss" scoped>
-$primaryColor: #62cc75;
-$secondaryColor: #2e3842;
 
-#footer{
-  background:$secondaryColor;
-  color:#fff;
-  font-weight:300;
-  padding: 20px;
+  $primaryColor: #62cc75;
+  $secondaryColor: #2e3842;
 
-  address{
-    font-style: normal;
-    line-height: 20px;
-    margin: 5px 3px;
-  }
-  address, label{
-    font-size:13px;
-    margin: 5px 5px;
-  }
+  #footer{
+    background:$secondaryColor;
+    color:#fff;
+    font-weight:300;
+    padding: 20px;
 
-  ul{
-    list-style: none;
-
-    li{
-      padding: 2px 0;
+    address{
+      font-style: normal;
+      line-height: 20px;
+      margin: 5px 3px;
     }
-    a{
-      font-size: 17px;
-      text-decoration: none;
-      font-weight:400;
+    address, label{
+      font-size:13px;
+      margin: 5px 5px;
     }
-  }
-  .socials{
-    a{
-      color:transparent;
-      display:inline-block;
-      margin: 15px 6px 0 0;
 
-      i{
-        color:$primaryColor;
-        font-size: 30px;
+    ul{
+      list-style: none;
 
-        &:hover{
-          color:#fff;
+      li{
+        padding: 2px 0;
+      }
+      a{
+        font-size: 17px;
+        text-decoration: none;
+        font-weight:400;
+      }
+    }
+    .socials{
+      a{
+        color:transparent;
+        display:inline-block;
+        margin: 15px 6px 0 0;
+
+        i{
+          color:$primaryColor;
+          font-size: 30px;
+
+          &:hover{
+            color:#fff;
+          }
         }
       }
     }
   }
-}
 
-@media all and (max-width: 960px){
-  #footer{
-    .col-inner{
-      display:inline-block;
-      margin:0 10%;
+  @media all and (max-width: 960px){
+    #footer{
+      .col-inner{
+        display:inline-block;
+        margin:0 10%;
+      }
+    }
+    ul{
+      padding:0;
     }
   }
-  ul{
-    padding:0;
-  }
-}
 
-@media all and (min-width: 961px){
-  #footer{
-    [class^='col-']{
-      text-align: center;
-    }
-    .col-inner{
-      text-align: left;
-      display:inline-block;
+  @media all and (min-width: 961px){
+    #footer{
+      [class^='col-']{
+        text-align: center;
+      }
+      .col-inner{
+        text-align: left;
+        display:inline-block;
+      }
     }
   }
-}
 
 </style>
