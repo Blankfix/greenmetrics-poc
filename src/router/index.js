@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '*',
+    name: 'catchAll',
+    component: Home
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home
