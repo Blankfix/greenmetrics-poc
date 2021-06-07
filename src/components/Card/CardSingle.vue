@@ -26,7 +26,6 @@ export default {
   $secondaryColor: #2e3842;
 
   .std-cards{
-    padding-top: 60px;
 
     >div{
       padding:0 20px;

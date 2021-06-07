@@ -40,9 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $secondaryColor: #2e3842;
-
-  .std-cards, .home-pleas{
-    padding: 0 0 50px;
+  .std-cards{
+    padding: 60px 0 50px;
   }
 </style>
