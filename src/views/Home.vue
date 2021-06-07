@@ -1,25 +1,423 @@
 <template lang="pug">
   div#home
     v-container
-      v-row(justify="center")
+      v-row
         v-col(cols="12")
-          h2.text-center Jump into the #[span.green--text green]  !
-          h3.text-center.secondary--text
-            | Inject funds into impactful environmental initiatives
-            br
-            | and balance your carbone debt of your digital pollution
+          v-scale-transition( mode="in-out" appear )
+            div#slogan
+              h2(v-html="$t('homeH2')")
+              h3.secondary--text(v-html="$t('homeH3')")
+              div.text-right
+                span.d-inline-block.text-center
+                  v-btn.green.theme--dark Ouvrez votre compte
+                  br
+                  em obtenez votre devis et une documentation gratuite
+
+      v-divider.half
+
+      v-scale-transition( mode="in-out" appear )
+        v-row.std-cards
+          v-col(cols="12" md="4")
+            div.text-center
+              v-icon mdi-chart-bar
+            h4 Bilan GES et fiscalité écologique
+            p Reporting et analyse de votre situation par rapport à votre secteur d'activité.
+            p Audit et proposition de plans d'action pour réduire votre empreinte carbone.
+
+          v-col(cols="12" md="4")
+            div.text-center
+              v-icon mdi-scale-balance
+            h4 Compensez vos émissions CO²
+            p Votre secteur peut être polluant de par sa nature, et vous risquez des pénalités et taxes.
+            p Choisissez d'agir de manière responsable, anticipez, et soutenez des projets verts.
+
+          v-col(cols="12" md="4")
+            div.text-center
+              v-icon.secon mdi-check-decagram
+            h4 Labellisation et RSE
+            p Bcorp, LUCIE, Engagé RSE, ces labels rayonnent en France et à l'international comme des gages de confiance et d'engagement.
+            p L'image de votre entreprise : votre  meilleure carte de visite
+
+
+      v-row.home-pleas(align="center")
+        v-col.text-center(cols="12" md="6")
+          div.home-plea
+            h4 Quels types d'initiatives ?
+            ul
+              li Mise en place de solutions de recyclage
+              li Implentation de zones "poumons verts"
+              li Construction de structures de production d'énergie verte
+              li Plans d'action de dépollution directe
+              li Financement de R&D dans les techologies vertes
+        v-col.home-plea-img.text-center(cols="12" md="6")
+          v-img(
+            src="https://picsum.photos/1024/512?image=321"
+            srcset="https://picsum.photos/1024/512?image=321 1024w, https://picsum.photos/780/390?image=321 780w, https://picsum.photos/500/250?image=321 500w"
+            sizes="(min-width: 1024px) 1024px, (min-width: 780px) 500px"
+            alt="Quels types d'initiatives ?"
+          )
+
+        v-row.home-pleas(align="center")
+          v-col.home-plea-img.text-center(cols="12" md="6")
+            v-img(
+              src="../assets/img/img-sample.png"
+            )
+          v-col.text-center(cols="12" md="6")
+            div.home-plea
+              h4 Pourquoi investir des fonds dans des éco-projets ?
+              ul
+                li Soigner l’image de l’entreprise
+                li Se différencier sur le marché
+                li Limiter le gaspillage, faire des économies
+                li Des gains de productivité
 
     <form-register-and-sign-in />
+    div#cta
+      v-container
+        v-row(align="center")
+          v-col(cols="12" md="10")
+            div.cta
+              div.cta-icon
+                v-icon.secon mdi-help-rhombus
+              div.cta-text
+                h4
+                  span
+                    | Porteur d'un projet,
+                    br
+                    | vous cherchez
+                    br
+                    | à lever des fonds ?
+                v-btn.secondary
+                  | Proposez une
+                  br
+                  | initiative écologique
+    v-container(fluid=true)#testimony
+      v-row( align="center" )
+        v-col( col="12" md="6" )
+          div.text-center
+            div.bg-half
+              v-icon.bg-icon mdi-emoticon-happy-outline
+            div.overlay-text
+              v-icon mdi-format-quote-open
+              h4
+                | Retour d'expérience :
+                br
+                | ils témoignent
+
+        v-col( col="12" md="6" )
+          div.text-center
+            v-card(
+              elevation="24"
+              max-width="444"
+              class="mx-auto"
+            )
+              v-system-bar lights-out
+              v-carousel(
+                :continuous="false"
+                :cycle="cycle"
+                :show-arrows="false"
+                hide-delimiter-background
+                delimiter-icon="mdi-minus"
+                height="300"
+              )
+                v-carousel-item(
+                  v-for="(slide, i) in slides"
+                  :key="i"
+                )
+                  v-sheet(
+                    :color="colors[i]"
+                    height="100%"
+                    tile
+                  )
+                    v-row(
+                      class="fill-height"
+                      align="center"
+                      justify="center"
+                    )
+                      div.display-3 {{ slide }} Slide
+
+              v-list( two-line )
+                v-list-item
+                  v-list-item-avatar
+                    v-img( src="https://cdn.vuetifyjs.com/images/john.png" )
+
+                  v-list-item-content
+                    v-list-item-title John Leider
+                    v-list-item-subtitle Author
+
+                  v-list-item-action
+                    v-switch(
+                      v-model="cycle"
+                      label="Cycle Slides"
+                      inset
+                    )
+
+    v-container#reinsurance(fluid=true)
+      v-row
+        v-col(cols
+          v-for="(reinsurance, k) in reinsurances"
+          :key="k"
+        )
+          v-img(
+            :src="reinsurance.src"
+            width="170"
+          )
 </template>
 
-<script>
-import FormRegisterAndSignIn from '@/components/FormRegisterAndSignIn';
+<script lang="ts">
+import FormRegisterAndSignIn from '../components/FormRegisterAndSignIn';
 
   export default {
     name: 'Home',
 
+    data () {
+      return {
+        colors: [
+          'green',
+          'secondary',
+          'yellow darken-4',
+          'red lighten-2',
+          'orange darken-1',
+        ],
+        cycle: false,
+        slides: [
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+        ],
+        reinsurances : [
+          {
+            src: require('../assets/img/label1.png')
+          },
+          {
+            src: require('../assets/img/label2.png')
+          },
+          {
+            src: require('../assets/img/label3.png')
+          },
+          {
+            src: require('../assets/img/label4.png')
+          },
+          {
+            src: require('../assets/img/label5.png')
+          },
+        ]
+      }
+    },
+
     components: {
-      FormRegisterAndSignIn,
+      FormRegisterAndSignIn
     },
   }
 </script>
+<style lang="scss" scoped>
+$secondaryColor: #2e3842;
+
+#slogan{
+  padding-top: 80px;
+  padding-bottom: 60px;
+  display:inline-block;
+
+  h2{
+    font-size: 50px;
+    font-weight: 300;
+  }
+
+  h3{
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .v-btn{
+    padding: 25px;
+    font-size:17px;
+    font-weight:300;
+  }
+  em{
+    font-style: normal;
+    font-size:12px;
+    opacity:0.8;
+  }
+}
+
+.std-cards, .home-pleas{
+  padding: 0 0 50px;
+}
+
+.std-cards{
+  padding-top: 60px;
+
+  >div{
+    padding:0 20px;
+  }
+
+  h4,p{
+    opacity: 0.5;
+  }
+  h4{
+    font-size:24px;
+  }
+  .v-icon.v-icon{
+    color: var(--v-secondary-base);
+    color: $secondaryColor;
+    font-size: 80px;
+    padding-bottom: 20px;
+  }
+}
+.home-pleas{
+  padding:50px 0;
+}
+.home-plea{
+  display: inline-block;
+  text-align: left;
+  font-size: 125%;
+}
+#cta{
+  position:relative;
+  margin: 50px 0;
+
+  &:before{
+    content:"";
+    display:block;
+    position:absolute;
+    left:0;
+    right:50%;
+    top:0;
+    bottom:0;
+    z-index: 1;
+    background:#f1f1f1;
+  }
+  [class^='col-']{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+.cta{
+  text-align: right;
+  background:#f1f1f1;
+  padding: 40px;
+  position:relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .cta-icon{
+    padding: 0 40px;
+
+    i{
+      font-size: 200px;
+      color:$secondaryColor;
+    }
+  }
+  .cta-text{
+
+    h4{
+      color:$secondaryColor;
+      text-align: left;
+      font-size: 160%;
+      line-height: 1.25;
+      font-weight: 400;
+      margin-bottom: 20px;
+      text-align: center;
+
+      span{
+        display: inline-block;
+        text-align: left;
+      }
+    }
+    .v-btn{
+      padding: 25px;
+      font-size: 17px;
+      font-weight: 300;
+    }
+  }
+}
+
+#testimony{
+  [class^='col-']{
+    position:relative;
+  }
+
+  .bg-icon{
+    font-size: 350px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.25;
+    z-index: 1;
+  }
+  .bg-half:after{
+    content: "";
+    display: block;
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: none;
+    opacity: 1;
+  }
+  .overlay-text{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: right;
+    margin-left: auto;
+    right: 0;
+    z-index: 3;
+    font-size: 30px;
+    line-height: 1.2;
+    color:$secondaryColor;
+    margin-top: -40px;
+
+    i{
+      color:$secondaryColor;
+      font-size: 80px;
+      line-height: 0.5;
+      position:relative;
+      left:12px;
+    }
+  }
+}
+
+#reinsurance{
+  position:relative;
+  background:#f1f1f1;
+  padding: 50px 20px;
+  margin: 50px 0;
+}
+
+@media all and (max-width: 960px){
+  .home-plea-img{
+    order:1;
+  }
+  .home-pleas > div:not(.home-plea-img){
+    order:2;
+  }
+}
+</style>
+
+<i18n>
+{
+  "en": {
+    "homeH2": "Spot your flaws, <span class='green--text'>turn it to a strength</span>",
+    "homeH3": "Balance your carbone footprint <br> by financing ecological projects"
+  },
+  "fr": {
+    "homeH2": "Repérez vos failles, <span class='green--text'>faites-en une force</span>",
+    "homeH3": "Compensez votre empreinte carbone <br> et participant à des initiatives écologiques"
+  }
+}
+</i18n>

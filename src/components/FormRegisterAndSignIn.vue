@@ -1,7 +1,7 @@
 <template lang="pug">
   v-container
     v-row(justify="center")
-      v-col(cols="9")
+      v-col(cols="12" md="9")
         v-card
           v-tabs(
             v-model="tab"
@@ -25,11 +25,19 @@
                     lazy-validation
                   )
                     v-row
+                      v-col(cols="12" sm="12" md="12")
+                        v-text-field(
+                          v-model="compagny"
+                          :rules="[rules.required]"
+                          label="Société"
+                          maxlength="30"
+                          required
+                        )
                       v-col(cols="12" sm="6" md="6")
                         v-text-field(
                           v-model="firstName"
                           :rules="[rules.required]"
-                          label="First Name"
+                          label="Prénom"
                           maxlength="20"
                           required
                         )
@@ -38,8 +46,8 @@
                         v-text-field(
                           v-model="lastName"
                           :rules="[rules.required]"
-                          label="Last Name"
-                          maxlength="20"
+                          label="Nom"
+                          maxlength="30"
                           required
                         )
 
@@ -47,7 +55,8 @@
                         v-text-field(
                           v-model="email"
                           :rules="emailRules"
-                          label="E-mail"
+                          label="Email"
+                          autocomplete="new-password"
                           required
                         )
 
@@ -57,9 +66,10 @@
                           :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                           :rules="[rules.required, rules.min]"
                           :type="show1 ? 'text' : 'password'"
+                          autocomplete="new-password"
                           name="input-10-1"
-                          label="Password"
-                          hint="At least 8 characters"
+                          label="Mot de passe"
+                          hint="8 carctères minimum"
                           counter
                           @click:append="show1 = !show1"
                         )
@@ -70,8 +80,9 @@
                           :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                           :rules="[rules.required, passwordMatch]"
                           :type="show1 ? 'text' : 'password'"
+                          autocomplete="new-password"
                           name="input-10-1"
-                          label="Confirm Password"
+                          label="Confirmez le mot de passe"
                           counter
                           @click:append="show1 = !show1"
                         )
@@ -85,7 +96,7 @@
                           :disabled="!valid"
                           color="success"
                           @click="validate"
-                        ) Register
+                        ) Valider
             v-tab-item
               v-card.px-4
                 v-card-text
@@ -100,6 +111,7 @@
                           v-model="loginEmail"
                           :rules="loginEmailRules"
                           label="E-mail"
+                          autocomplete="new-password"
                           required
                         )
 
@@ -109,6 +121,7 @@
                           :append-icon="show1?'eye':'eye-off'"
                           :rules="[rules.required, rules.min]"
                           :type="show1 ? 'text' : 'password'"
+                          autocomplete="new-password"
                           name="input-10-1"
                           label="Password"
                           hint="At least 8 characters"
@@ -127,40 +140,23 @@
                           :disabled="!valid"
                           color="success"
                           @click="validate"
-                        ) Login
+                        ) Connexion
 
 </template>
 
 <script>
 export default {
   name: 'FormRegisterAndSignIn',
-  computed: {
-    passwordMatch() {
-      return () => this.password === this.verify || "Password must match";
-    }
-  },
-  methods: {
-    validate() {
-      if (this.$refs.loginForm.validate()) {
-        // submit form to server/API here...
-      }
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation();
-    }
-  },
   data: () => ({
     dialog: true,
     tab: 0,
     tabs: [
-      {name:"Register", icon:"mdi-account-outline"},
-      {name:"Login", icon:"mdi-account"}
+      {name:"S'inscrire", icon:"mdi-account-outline"},
+      {name:"Se connecter", icon:"mdi-account"}
     ],
     valid: true,
 
+    compagny: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -169,20 +165,32 @@ export default {
     loginPassword: "",
     loginEmail: "",
     loginEmailRules: [
-      v => !!v || "Required",
-      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      v => !!v || "Ce champ est obligatoire",
+      v => /.+@.+\..+/.test(v) || "L'email doit être valide"
     ],
     emailRules: [
-      v => !!v || "Required",
-      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      v => !!v || "Ce champ est obligatoire",
+      v => /.+@.+\..+/.test(v) || "L'email doit être valide"
     ],
 
     show1: false,
     rules: {
-      required: value => !!value || "Required.",
-      min: v => (v && v.length >= 8) || "Min 8 characters"
+      required: value => !!value || "Ce champ est obligatoire",
+      min: v => (v && v.length >= 8) || "8 caractères minimum"
     }
   }),
+  methods: {
+    validate() {
+      if (this.$refs.loginForm.validate()) {
+        console.log();
+      }
+    }
+  },
+  computed: {
+    passwordMatch() {
+      return () => this.password === this.verify || "Le mot de passe doit correspondre";
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>

@@ -59,6 +59,7 @@
     )
       v-icon mdi-account_circle
 
+    locale-select
     //v-btn(
     //  href="https://github.com/vuetifyjs/vuetify/releases/latest"
     //  target="_blank"
@@ -68,9 +69,13 @@
 </template>
 
 <script>
+import LocaleSelect from '@/components/LocaleSelect';
+
 export default {
   name: 'TheNavbar',
-
+  components:{
+    LocaleSelect
+  },
   data: () => ({
     user: {
       isLoggedIn : false,
