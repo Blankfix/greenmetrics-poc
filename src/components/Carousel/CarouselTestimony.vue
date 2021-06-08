@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-card(
+  v-card.carousel-testimony(
     elevation="24"
     max-width="444"
     class="mx-auto"
@@ -30,13 +30,6 @@
                 v-list-item-subtitle {{ slide.job }}
                 v-list-item-content {{ slide.quote }}
 
-        //v-list-item-action
-        //  v-switch(
-        //    v-model="cycle"
-        //    label="Cycle Slides"
-        //    inset
-        //  )
-
 </template>
 
 <script lang="ts">
@@ -56,25 +49,25 @@ export default {
       cycle: false,
       slides: [
           {
-            name: `Alain Térieur`,
+            name: `Alain TÉRIEUR`,
             job: `Frère d'Alex`,
             img: `https://thispersondoesnotexist.com/image`,
             quote: `Nous avons pu nous apercevoir que déverser nos déchets dans les rivières n'était pas une solution pérenne.`
           },
           {
-            name: `Camille Onette`,
+            name: `Camille ONNETTE`,
             job: `Employée chez Persona`,
             img: `https://thispersondoesnotexist.com/image`,
             quote: `Je n'existe pas vraiment, et j'en suis triste, mais ça va car ma tristesse n'existe pas, elle non plus.`
           },
           {
-            name: `Adam Troijours`,
+            name: `Adam TROIJOURS`,
             job: `Président d'une présipauté`,
             img: `https://thispersondoesnotexist.com/image`,
             quote: `Je suis quelqu'un d'important...`
           },
           {
-            name: `Jean-Philippe Erbien`,
+            name: `Jean-Philippe ERBIEN`,
             job: `PDG de Redoutables`,
             img: `https://thispersondoesnotexist.com/image`,
             quote: `Je suis bien plus important que l'autre gugus !`
@@ -86,5 +79,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  $secondaryColor: #2e3842;
 
+  .carousel-testimony{
+    .v-list-item__content{
+      font-weight: 300;
+      font-size: 15px;
+      color: $secondaryColor;
+      line-height: 1.3;
+    }
+  }
 </style>
