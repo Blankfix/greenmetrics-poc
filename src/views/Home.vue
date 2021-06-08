@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts">
-import FormRegisterAndSignIn from '../components/FormRegisterAndSignIn'
+import FormRegisterAndSignIn from '../components/Forms/FormRegisterAndSignIn.vue'
 import CardWrapper from '../components/Card/CardWrapper'
 import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
 
@@ -140,176 +140,176 @@ import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
   }
 </script>
 <style lang="scss" scoped>
-$secondaryColor: #2e3842;
+  $secondaryColor: #2e3842;
 
-#slogan{
-  padding-top: 80px;
-  padding-bottom: 60px;
-  display:inline-block;
+  #slogan{
+    padding-top: 80px;
+    padding-bottom: 60px;
+    display:inline-block;
 
-  h2{
-    font-size: 50px;
-    font-weight: 300;
-  }
-
-  h3{
-    font-weight: 300;
-    font-size: 35px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  .v-btn{
-    padding: 25px;
-    font-size:17px;
-    font-weight:300;
-  }
-  em{
-    font-style: normal;
-    font-size:12px;
-    opacity:0.8;
-  }
-}
-
-.home-pleas{
-  padding:50px 0;
-}
-.home-plea{
-  display: inline-block;
-  text-align: left;
-  font-size: 125%;
-}
-#cta{
-  position:relative;
-  margin: 50px 0;
-
-  &:before{
-    content:"";
-    display:block;
-    position:absolute;
-    left:0;
-    right:50%;
-    top:0;
-    bottom:0;
-    z-index: 1;
-    background:#f1f1f1;
-  }
-  [class^='col-']{
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-.cta{
-  text-align: right;
-  background:#f1f1f1;
-  padding: 40px;
-  position:relative;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  .cta-icon{
-    padding: 0 40px;
-
-    i{
-      font-size: 200px;
-      color:$secondaryColor;
+    h2{
+      font-size: 50px;
+      font-weight: 300;
     }
-  }
-  .cta-text{
 
-    h4{
-      color:$secondaryColor;
-      text-align: left;
-      font-size: 160%;
-      line-height: 1.25;
-      font-weight: 400;
+    h3{
+      font-weight: 300;
+      font-size: 35px;
+      line-height: 1.2;
       margin-bottom: 20px;
-      text-align: center;
-
-      span{
-        display: inline-block;
-        text-align: left;
-      }
     }
     .v-btn{
       padding: 25px;
-      font-size: 17px;
-      font-weight: 300;
+      font-size:17px;
+      font-weight:300;
+    }
+    em{
+      font-style: normal;
+      font-size:12px;
+      opacity:0.8;
     }
   }
-}
 
-#testimony{
-  [class^='col-']{
+  .home-pleas{
+    padding:50px 0;
+  }
+  .home-plea{
+    display: inline-block;
+    text-align: left;
+    font-size: 125%;
+  }
+  #cta{
     position:relative;
-  }
+    margin: 50px 0;
 
-  .bg-icon{
-    font-size: 350px;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    opacity: 0.25;
-    z-index: 1;
-  }
-  .bg-half:after{
-    content: "";
-    display: block;
-    background: #fff;
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    transition: none;
-    opacity: 1;
-  }
-  .overlay-text{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: right;
-    margin-left: auto;
-    right: 0;
-    z-index: 3;
-    font-size: 30px;
-    line-height: 1.2;
-    color:$secondaryColor;
-    margin-top: -40px;
-
-    i{
-      color:$secondaryColor;
-      font-size: 80px;
-      line-height: 0.5;
-      position:relative;
-      left:12px;
+    &:before{
+      content:"";
+      display:block;
+      position:absolute;
+      left:0;
+      right:50%;
+      top:0;
+      bottom:0;
+      z-index: 1;
+      background:#f1f1f1;
+    }
+    [class^='col-']{
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
-}
+  .cta{
+    text-align: right;
+    background:#f1f1f1;
+    padding: 40px;
+    position:relative;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
-#reinsurance{
-  position:relative;
-  background:#f1f1f1;
-  padding: 50px 20px;
-  margin: 50px 0;
-}
+    .cta-icon{
+      padding: 0 40px;
 
-@media all and (max-width: 960px){
-  .home-plea-img{
-    order:1;
+      i{
+        font-size: 200px;
+        color:$secondaryColor;
+      }
+    }
+    .cta-text{
+
+      h4{
+        color:$secondaryColor;
+        text-align: left;
+        font-size: 160%;
+        line-height: 1.25;
+        font-weight: 400;
+        margin-bottom: 20px;
+        text-align: center;
+
+        span{
+          display: inline-block;
+          text-align: left;
+        }
+      }
+      .v-btn{
+        padding: 25px;
+        font-size: 17px;
+        font-weight: 300;
+      }
+    }
   }
-  .home-pleas > div:not(.home-plea-img){
-    order:2;
+
+  #testimony{
+    [class^='col-']{
+      position:relative;
+    }
+
+    .bg-icon{
+      font-size: 350px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      opacity: 0.25;
+      z-index: 1;
+    }
+    .bg-half:after{
+      content: "";
+      display: block;
+      background: #fff;
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transition: none;
+      opacity: 1;
+    }
+    .overlay-text{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: right;
+      margin-left: auto;
+      right: 0;
+      z-index: 3;
+      font-size: 30px;
+      line-height: 1.2;
+      color:$secondaryColor;
+      margin-top: -40px;
+
+      i{
+        color:$secondaryColor;
+        font-size: 80px;
+        line-height: 0.5;
+        position:relative;
+        left:12px;
+      }
+    }
   }
-}
+
+  #reinsurance{
+    position:relative;
+    background:#f1f1f1;
+    padding: 50px 20px;
+    margin: 50px 0;
+  }
+
+  @media all and (max-width: 960px){
+    .home-plea-img{
+      order:1;
+    }
+    .home-pleas > div:not(.home-plea-img){
+      order:2;
+    }
+  }
 </style>
 
 <i18n>

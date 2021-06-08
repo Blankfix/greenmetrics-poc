@@ -1,6 +1,7 @@
 <template lang="pug">
   div#main-nav
     v-app-bar(
+      app
       dark
       id="navbar"
       color="secondary"
@@ -43,6 +44,7 @@
 
     v-navigation-drawer(
       v-model="drawer"
+      app
     )
       v-list(
         nav
@@ -78,7 +80,7 @@ export default {
     },
     linksMainMenu: [
       {
-        text: 'Greenjection',
+        text: 'Accueil',
         href: '/',
         icon: 'view-dashboard',
       },
