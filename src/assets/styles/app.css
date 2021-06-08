@@ -9,4 +9,19 @@ body {
 .v-application .v-divider.half {
   margin: 0 20%; }
 
+.page-title {
+  font-weight: 300;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 40px;
+  font-style: italic;
+  color: #2e3842; }
+
+.headline {
+  color: #62cc75; }
+
+.v-content {
+  font-size: 17px;
+  text-align: justify; }
+
 /*# sourceMappingURL=app.css.map */

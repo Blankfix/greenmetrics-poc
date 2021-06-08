@@ -20,13 +20,11 @@
           v-text-field(
             v-model="loginPassword"
             :append-icon="show1?'eye':'eye-off'"
-            :rules="[rules.required, rules.min]"
+            :rules="[rules.required]"
             :type="show1 ? 'text' : 'password'"
             autocomplete="new-password"
             name="input-10-1"
             label="Mot de passe"
-            hint="8 caractères minimum"
-            counter
             @click:append="show1 = !show1"
           )
 
