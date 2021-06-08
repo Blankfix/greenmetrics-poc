@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app
+    the-navbar
     v-main
-      the-navbar
       router-view
       the-footer
 </template>
@@ -23,3 +23,6 @@ export default {
   }),
 };
 </script>
+<style lang="scss">
+  @import "./assets/styles/app.scss";
+</style>

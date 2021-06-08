@@ -110,7 +110,7 @@
                         v-text-field(
                           v-model="loginEmail"
                           :rules="loginEmailRules"
-                          label="E-mail"
+                          label="Email"
                           autocomplete="new-password"
                           required
                         )
@@ -123,8 +123,8 @@
                           :type="show1 ? 'text' : 'password'"
                           autocomplete="new-password"
                           name="input-10-1"
-                          label="Password"
-                          hint="At least 8 characters"
+                          label="Mot de passe"
+                          hint="8 caractères minimum"
                           counter
                           @click:append="show1 = !show1"
                         )

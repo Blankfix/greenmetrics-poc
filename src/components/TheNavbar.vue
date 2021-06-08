@@ -1,70 +1,67 @@
 <template lang="pug">
-  //v-app-bar(
-  //  app
-  //  color="indigo darken-2"
-  //  dark
-  //  shrink-on-scroll
-  //  prominent
-  //  scroll-target="#scrolling-techniques"
-  //)
-  //  v-app-bar-nav-icon
-  //  v-app-bar-title Title
-  //  v-spacer
-  //
-  //  v-btn(icon)
-  //    v-icon mdi-magnify
-  //  v-btn(icon)
-  //    v-icon mdi-heart
-  //  v-btn(icon)
-  //    v-icon mdi-vertical
-  //
+  v-card.mx-auto.overflow-hidden
+    v-app-bar(
+      app
+      dark
+      id="navbar"
+      color="secondary"
+    )
+      div.d-flex.align-center
+        v-app-bar-nav-icon(  @click.stop="drawer = !drawer" )
+        v-img(
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          :src="require('../assets/img/logo-greenjection-light.svg')"
+          transition="scale-transition"
+          width="120"
+        )
 
-  v-app-bar(
-    app
-    dark
-    id="navbar"
-    color="secondary"
-  )
-    div.d-flex.align-center
-      v-app-bar-nav-icon
-      v-img(
-        alt="Vuetify Logo"
-        class="shrink mr-2"
-        contain
-        :src="require('../assets/img/logo-greenjection-light.svg')"
-        transition="scale-transition"
-        width="120"
+      v-spacer
+
+      v-divider(vertical)
+      v-btn(icon)
+        v-icon mdi-magnify
+
+      v-btn(
+        icon
+        v-if="user.isLoggedIn"
       )
+        v-icon mdi-logout
+      v-btn(
+        icon
+        v-else
+      )
+        v-icon mdi-login
 
-    v-spacer
+      v-btn(
+        icon
+        v-show="user.isLoggedIn"
+      )
+        v-icon mdi-account_circle
 
-    v-divider(vertical)
-    v-btn(icon)
-      v-icon mdi-magnify
+      locale-select
 
-    v-btn(
-      icon
-      v-if="user.isLoggedIn"
+    v-navigation-drawer(
+      v-model="drawer"
+      absolute
+      bottom
+      temporary
     )
-      v-icon mdi-logout
-    v-btn(
-      icon
-      v-else
-    )
-      v-icon mdi-login
+      v-list(
+        nav
+        dense
+      )
+        v-list-item-group(
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        )
+          v-list-item( v-for="(link, k) in linksMainMenu" :key="k" )
+            v-list-item-title
+              a(
+                :href=" link.href"
+              ) {{ link.text }}
 
-    v-btn(
-      icon
-      v-show="user.isLoggedIn"
-    )
-      v-icon mdi-account_circle
-
-    locale-select
-    //v-btn(
-    //  href="https://github.com/vuetifyjs/vuetify/releases/latest"
-    //  target="_blank"
-    //  text
-    //)
 
 </template>
 
@@ -80,9 +77,33 @@ export default {
     user: {
       isLoggedIn : false,
     },
-    navbarLinks: [
+    linksMainMenu: [
+      {
+        text: 'Greenjection',
+        href: '/',
+      },
+      {
+        text: 'A propos',
+        href: '/',
+      },
+      {
+        text: 'FAQ',
+        href: '/',
+      },
+      {
+        text: 'Mentions légales',
+        href: '/',
+      },
     ],
+    drawer: false,
+    group: null,
   }),
+
+  watch: {
+    group () {
+      this.drawer = false
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
