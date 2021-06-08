@@ -1,6 +1,7 @@
 <template lang="pug">
   v-container#footer(
     fluid
+    tag="footer"
   )
     v-row(align="center")
       v-col(cols="12" md="3")
