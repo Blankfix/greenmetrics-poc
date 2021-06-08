@@ -24,7 +24,10 @@
           v-list
             v-list-item
               v-list-item-avatar( size="200")
-                v-img( :src="slide.img" )
+                v-img(
+                  :lazy-src="slide.img + '?' + i"
+                  :src="slide.img + '?' + i"
+                )
               v-list-item-group
                 v-list-item-title {{ slide.name }}
                 v-list-item-subtitle {{ slide.job }}
