@@ -7,9 +7,8 @@
     v-carousel(
       :continuous="false"
       :cycle="cycle"
-      :show-arrows="false"
+      :show-arrows="true"
       hide-delimiter-background
-      delimiter-icon="mdi-minus"
       height="300"
     )
       v-carousel-item(
@@ -90,6 +89,9 @@ export default {
       font-size: 15px;
       color: $secondaryColor;
       line-height: 1.3;
+    }
+    .v-list{
+      height: 84%;
     }
   }
 </style>

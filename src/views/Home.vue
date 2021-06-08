@@ -278,7 +278,7 @@ import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
       justify-content: center;
       text-align: right;
       margin-left: auto;
-      right: 0;
+      right: 5px;
       z-index: 3;
       font-size: 30px;
       line-height: 1.2;
@@ -308,6 +308,15 @@ import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
     }
     .home-pleas > div:not(.home-plea-img){
       order:2;
+    }
+  }
+  @media all and (max-width: 764px){
+    #testimony{
+      .overlay-text{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
     }
   }
 </style>
