@@ -85,18 +85,18 @@ export default {
         icon: 'view-dashboard',
       },
       {
-        text: 'A propos',
+        text: 'À propos',
         href: '/about',
         icon: 'help-box',
       },
       {
         text: 'FAQ',
-        href: '/a-faire',
+        href: '/faq',
         icon: 'school',
       },
       {
         text: 'Mentions légales',
-        href: '/a-faire',
+        href: '/legals',
         icon: 'alert',
       },
     ],

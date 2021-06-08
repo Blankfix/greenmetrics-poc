@@ -1,3 +1,6 @@
+$primaryColor: #62cc75;
+$secondaryColor: #2e3842;
+
 body{
   overflow-x: hidden;
 }
@@ -7,9 +10,25 @@ body{
     height:auto;
   }
   a{
-    color: #62cc75;
+    color: $primaryColor;
   }
   .v-divider.half{
     margin: 0 20%;
   }
+}
+.page-title{
+  font-weight: 300;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 40px;
+  font-style: italic;
+  color:$secondaryColor;
+}
+.headline{
+  color:$primaryColor;
+}
+.v-content{
+  font-size: 17px;
+  text-align: justify;
+  padding-bottom: 20px !important;
 }
