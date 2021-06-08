@@ -3,14 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var vue_1 = require("vue");
 var framework_1 = require("vuetify/lib/framework");
 vue_1.default.use(framework_1.default);
-vue_1.default.component('LocaleSelect', {
-    methods: {
-        changeLocale: function () {
-            this.$vuetify.lang.current = 'fr';
-            console.log(this.$vuetify.lang);
-        },
-    },
-});
 exports.default = new framework_1.default({
     theme: {
         defaultTheme: 'light',

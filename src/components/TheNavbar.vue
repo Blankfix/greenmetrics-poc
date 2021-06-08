@@ -65,8 +65,8 @@
 
 </template>
 
-<script>
-import LocaleSelect from '@/components/LocaleSelect';
+<script lang="ts">
+import LocaleSelect from '../components/LocaleSelect';
 
 export default {
   name: 'TheNavbar',

@@ -5,7 +5,7 @@
         v-col(cols="12")
           v-scale-transition( mode="in-out" appear )
             div#slogan
-              h2(v-html="$t('homeSloganH2')")
+              h2.secondary--text(v-html="$t('homeSloganH2')")
               h3.secondary--text(v-html="$t('homeSloganH3')")
               div.text-right
                 span.d-inline-block.text-center
@@ -16,6 +16,7 @@
       v-divider.half
 
       // Cards component section.
+      // Tested as a folder structure
       // Child single vue requires "card-icon" prop and is filled by a "cardContent" slot
       card-wrapper( desktop-cols=4 )
 
@@ -87,52 +88,7 @@
                 | ils témoignent
 
         v-col( col="12" md="6" )
-          div.text-center
-            v-card(
-              elevation="24"
-              max-width="444"
-              class="mx-auto"
-            )
-              v-system-bar lights-out
-              v-carousel(
-                :continuous="false"
-                :cycle="cycle"
-                :show-arrows="false"
-                hide-delimiter-background
-                delimiter-icon="mdi-minus"
-                height="300"
-              )
-                v-carousel-item(
-                  v-for="(slide, i) in slides"
-                  :key="i"
-                )
-                  v-sheet(
-                    :color="colors[i]"
-                    height="100%"
-                    tile
-                  )
-                    v-row(
-                      class="fill-height"
-                      align="center"
-                      justify="center"
-                    )
-                      div.display-3 {{ slide }} Slide
-
-              v-list( two-line )
-                v-list-item
-                  v-list-item-avatar
-                    v-img( src="https://cdn.vuetifyjs.com/images/john.png" )
-
-                  v-list-item-content
-                    v-list-item-title John Leider
-                    v-list-item-subtitle Author
-
-                  v-list-item-action
-                    v-switch(
-                      v-model="cycle"
-                      label="Cycle Slides"
-                      inset
-                    )
+          carousel-testimony
 
     v-container#reinsurance(fluid=true)
       v-row
@@ -149,27 +105,13 @@
 <script lang="ts">
 import FormRegisterAndSignIn from '../components/FormRegisterAndSignIn'
 import CardWrapper from '../components/Card/CardWrapper'
+import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
 
   export default {
     name: 'Home',
 
     data () {
       return {
-        colors: [
-          'green',
-          'secondary',
-          'yellow darken-4',
-          'red lighten-2',
-          'orange darken-1',
-        ],
-        cycle: false,
-        slides: [
-          'First',
-          'Second',
-          'Third',
-          'Fourth',
-          'Fifth',
-        ],
         reinsurances : [
           {
             src: require('../assets/img/label1.png')
@@ -191,6 +133,7 @@ import CardWrapper from '../components/Card/CardWrapper'
     },
 
     components: {
+      CarouselTestimony,
       FormRegisterAndSignIn,
       CardWrapper
     },
