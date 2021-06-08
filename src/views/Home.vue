@@ -5,13 +5,13 @@
         v-col(cols="12")
           v-scale-transition( mode="in-out" appear )
             div#slogan
-              h2(v-html="$t('homeH2')")
-              h3.secondary--text(v-html="$t('homeH3')")
+              h2(v-html="$t('homeSloganH2')")
+              h3.secondary--text(v-html="$t('homeSloganH3')")
               div.text-right
                 span.d-inline-block.text-center
-                  v-btn.green.theme--dark Ouvrez votre compte
+                  v-btn.green.theme--dark {{$t('homeSloganBtn')}}
                   br
-                  em obtenez votre devis et une documentation gratuite
+                  em {{$t('homeSloganEm')}}
 
       v-divider.half
 
@@ -52,7 +52,8 @@
                 li Limiter le gaspillage, faire des économies
                 li Des gains de productivité
 
-    <form-register-and-sign-in />
+    form-register-and-sign-in
+
     div#cta
       v-container
         v-row(align="center")
@@ -371,12 +372,16 @@ $secondaryColor: #2e3842;
 <i18n>
 {
   "en": {
-    "homeH2": "Spot your flaws, <span class='green--text'>turn it to a strength</span>",
-    "homeH3": "Balance your carbone footprint <br> by financing ecological projects"
+    "homeSloganH2": "Spot your flaws, <span class='green--text'>turn it to a strength</span>",
+    "homeSloganH3": "Balance your carbone footprint <br> by financing ecological projects",
+    "homeSloganBtn": "Create your account",
+    "homeSloganEm": "get your quote and free documentation"
   },
   "fr": {
-    "homeH2": "Repérez vos failles, <span class='green--text'>faites-en une force</span>",
-    "homeH3": "Compensez votre empreinte carbone <br> et participant à des initiatives écologiques"
+    "homeSloganH2": "Repérez vos failles, <span class='green--text'>faites-en une force</span>",
+    "homeSloganH3": "Compensez votre empreinte carbone <br> et participant à des initiatives écologiques",
+    "homeSloganBtn": "Ouvrez votre compte",
+    "homeSloganEm": "obtenez votre devis et une documentation gratuite"
   }
 }
 </i18n>
