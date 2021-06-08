@@ -35,17 +35,17 @@
         div.col-inner
           ul
             li(v-for="(footerLink, i) in footerLinksLeft" :key="i")
-              a(
-                  :href="footerLink.href"
-              ) {{ footerLink.text }}
+              router-link(
+                  :to="footerLink.href"
+                ) {{ footerLink.text }}
 
       v-col(cols="12" md="3")
         div.col-inner
           ul
             li(v-for="(footerLink, k) in footerLinksRight" :key="k")
-              a(
-                :href="footerLink.href"
-            ) {{ footerLink.text }}
+              router-link(
+                :to="footerLink.href"
+              ) {{ footerLink.text }}
 
       v-col(cols="12" md="3")
         div.col-inner
@@ -74,16 +74,16 @@
           href: '/',
         },
         {
-          text: 'A propos',
-          href: '/',
+          text: 'À propos',
+          href: '/about',
         },
         {
           text: 'FAQ',
-          href: '/',
+          href: '/faq',
         },
         {
           text: 'Mentions légales',
-          href: '/',
+          href: '/legals',
         },
       ],
       footerLinksRight: [
