@@ -27,9 +27,9 @@
 
 </template>
 
-<script>
-import FormSignIn from "@/components/Forms/FormSignIn";
-import FormRegister from "@/components/Forms/FormRegister";
+<script lang="ts">
+import FormSignIn from "./FormSignIn";
+import FormRegister from "./FormRegister";
 export default {
   name: 'FormRegisterAndSignIn',
   components: {FormRegister, FormSignIn},
