@@ -22,6 +22,7 @@ body {
 
 .v-content {
   font-size: 17px;
-  text-align: justify; }
+  text-align: justify;
+  padding-bottom: 20px !important; }
 
 /*# sourceMappingURL=app.css.map */
