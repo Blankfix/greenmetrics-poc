@@ -19,10 +19,10 @@
               v-expansion-panel-content
                 ul
                   li Mise en place de solutions de recyclage
-                  li Implentation de zones "poumons verts"
+                  li Implantation de zones "poumons verts"
                   li Construction de structures de production d'énergie verte
                   li Plans d'action de dépollution directe
-                  li Financement de R&D dans les techologies vertes
+                  li Financement de R&D dans les technologies vertes
             v-expansion-panel
               v-expansion-panel-header Pourquoi investir des fonds dans des éco-projets ?
               v-expansion-panel-content

@@ -27,10 +27,10 @@
             h4 Quels types d'initiatives ?
             ul
               li Mise en place de solutions de recyclage
-              li Implentation de zones "poumons verts"
+              li Implantation de zones "poumons verts"
               li Construction de structures de production d'énergie verte
               li Plans d'action de dépollution directe
-              li Financement de R&D dans les techologies vertes
+              li Financement de R&D dans les technologies vertes
         v-col.home-plea-img.text-center(cols="12" md="6")
           v-img(
             src="https://picsum.photos/1024/512?image=321"
@@ -71,7 +71,7 @@
                     br
                     | à lever des fonds ?
                 v-btn.secondary
-                  | Proposez une
+                  | Proposer une
                   br
                   | initiative écologique
     v-container(fluid=true)#testimony
