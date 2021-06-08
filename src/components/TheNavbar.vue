@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-card.mx-auto.overflow-hidden
+  div#main-nav
     v-app-bar(
       app
       dark
@@ -44,9 +44,6 @@
 
     v-navigation-drawer(
       v-model="drawer"
-      absolute
-      bottom
-      temporary
     )
       v-list(
         nav
@@ -56,11 +53,14 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         )
-          v-list-item( v-for="(link, k) in linksMainMenu" :key="k" )
-            v-list-item-title
-              a(
-                :href=" link.href"
-              ) {{ link.text }}
+          v-list-item( v-for="(link, k) in linksMainMenu" :key="k"
+            link
+            :to="link.href"
+          )
+            v-list-item-icon
+              v-icon mdi-{{ link.icon }}
+            v-list-item-title {{ link.text }}
+
 
 
 </template>
@@ -81,18 +81,22 @@ export default {
       {
         text: 'Greenjection',
         href: '/',
+        icon: 'view-dashboard',
       },
       {
         text: 'A propos',
-        href: '/',
+        href: '/about',
+        icon: 'help-box',
       },
       {
         text: 'FAQ',
         href: '/',
+        icon: 'school',
       },
       {
         text: 'Mentions légales',
         href: '/',
+        icon: 'alert',
       },
     ],
     drawer: false,
