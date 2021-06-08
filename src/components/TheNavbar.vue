@@ -1,7 +1,6 @@
 <template lang="pug">
   div#main-nav
     v-app-bar(
-      app
       dark
       id="navbar"
       color="secondary"
@@ -90,12 +89,12 @@ export default {
       },
       {
         text: 'FAQ',
-        href: '/',
+        href: '/a-faire',
         icon: 'school',
       },
       {
         text: 'Mentions légales',
-        href: '/',
+        href: '/a-faire',
         icon: 'alert',
       },
     ],
