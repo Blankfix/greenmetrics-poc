@@ -107,19 +107,19 @@
       footerSocials: [
         {
           icon: 'facebook',
-          href: '/',
+          href: 'https://www.facebook.com',
         },
         {
           icon: 'twitter',
-          href: '/',
+          href: 'https://www.twitter.com/',
         },
         {
           icon: 'instagram',
-          href: '/',
+          href: 'https://www.instagram.com/',
         },
         {
           icon: 'linkedin',
-          href: '/',
+          href: 'https://www.linkedin.com/',
         },
       ],
     }),
