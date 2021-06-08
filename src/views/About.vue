@@ -1,6 +1,6 @@
 <template lang="pug">
   v-container
-    h1.page-title Greenjection, solution SAAS
+    h1.page-title Greenjection, solution SaaS
     v-row.align-center
       v-col( cols="12" md="8" offset-md="2")
         v-content
