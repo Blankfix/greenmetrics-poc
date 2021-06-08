@@ -3,7 +3,7 @@
     h1.page-title F.A.Q
     v-row.align-center
       v-col( cols="12" md="8" offset-md="2")
-        v-content
+        v-main
           v-alert(
             border="top"
             colored-border

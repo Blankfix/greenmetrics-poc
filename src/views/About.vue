@@ -3,7 +3,7 @@
     h1.page-title Greenjection, solution SaaS
     v-row.align-center
       v-col( cols="12" md="8" offset-md="2")
-        v-content
+        v-main
           p.headline Une quête constante de la croissance : une pollution  en conséquence
 
           p

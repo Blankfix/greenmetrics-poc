@@ -3,7 +3,7 @@
     h1.page-title Mentions légales
     v-row.align-center
       v-col( cols="12" md="8" offset-md="2")
-        v-content
+        v-main
           h2 Définitions
           p Client : tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.
           p Prestations et Services : https://lecharbonneur.com/ met à disposition des Clients :
