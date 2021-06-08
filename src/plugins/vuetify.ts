@@ -1,9 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var vue_1 = require("vue");
-var framework_1 = require("vuetify/lib/framework");
-vue_1.default.use(framework_1.default);
-exports.default = new framework_1.default({
+import Vue from 'vue';
+//import {Vuetify, ThemeDefinition} from 'vuetify/lib/framework';
+import Vuetify from 'vuetify/lib/framework';
+
+Vue.use(Vuetify);
+
+export default new Vuetify({
     theme: {
         defaultTheme: 'light',
         themes: {
@@ -16,5 +17,4 @@ exports.default = new framework_1.default({
             },
         },
     },
-});
-//# sourceMappingURL=vuetify.js.map
+})
