@@ -8,40 +8,42 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'CardSingle',
+import Vue from "vue";
+export default Vue.extend({
+  name: "CardSingle",
 
   props: {
-    cardIcon : {
+    cardIcon: {
       type: String,
       required: true,
-      default () {
+      default(): string {
         return this.cardIcon;
-      }},
-  }
-}
+      },
+    },
+  },
+});
 </script>
 
 <style lang="scss" scoped>
-  $secondaryColor: #2e3842;
+$secondaryColor: #2e3842;
 
-  .std-cards{
-
-    >div{
-      padding:0 20px;
-    }
-
-    h4,p{
-      opacity: 0.5;
-    }
-    h4{
-      font-size:24px;
-    }
-    .v-icon.v-icon{
-      color: var(--v-secondary-base);
-      color: $secondaryColor;
-      font-size: 80px;
-      padding-bottom: 20px;
-    }
+.std-cards {
+  > div {
+    padding: 0 20px;
   }
+
+  h4,
+  p {
+    opacity: 0.5;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  .v-icon.v-icon {
+    color: var(--v-secondary-base);
+    color: $secondaryColor;
+    font-size: 80px;
+    padding-bottom: 20px;
+  }
+}
 </style>

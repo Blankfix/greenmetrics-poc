@@ -64,141 +64,141 @@
 </template>
 
 <script lang="ts">
-  export default {
-    name: 'TheFooter',
+import Vue from "vue";
+export default Vue.extend({
+  name: "TheFooter",
 
-    data: () => ({
-      footerLinksLeft: [
-        {
-          text: 'Greenjection',
-          href: '/',
-        },
-        {
-          text: 'À propos',
-          href: '/about',
-        },
-        {
-          text: 'FAQ',
-          href: '/faq',
-        },
-        {
-          text: 'Mentions légales',
-          href: '/legals',
-        },
-      ],
-      footerLinksRight: [
-        {
-          text: 'Ouvrir un compte',
-          href: '/',
-        },
-        {
-          text: 'Se connecter',
-          href: '/',
-        },
-        {
-          text: 'Proposer un projet',
-          href: '/',
-        },
-        {
-          text: 'Nous contacter',
-          href: '/',
-        },
-      ],
-      footerSocials: [
-        {
-          icon: 'facebook',
-          href: 'https://www.facebook.com',
-        },
-        {
-          icon: 'twitter',
-          href: 'https://www.twitter.com/',
-        },
-        {
-          icon: 'instagram',
-          href: 'https://www.instagram.com/',
-        },
-        {
-          icon: 'linkedin',
-          href: 'https://www.linkedin.com/',
-        },
-      ],
-    }),
-  }
+  data: () => ({
+    footerLinksLeft: [
+      {
+        text: "Greenjection",
+        href: "/",
+      },
+      {
+        text: "À propos",
+        href: "/about",
+      },
+      {
+        text: "FAQ",
+        href: "/faq",
+      },
+      {
+        text: "Mentions légales",
+        href: "/legals",
+      },
+    ],
+    footerLinksRight: [
+      {
+        text: "Ouvrir un compte",
+        href: "/",
+      },
+      {
+        text: "Se connecter",
+        href: "/",
+      },
+      {
+        text: "Proposer un projet",
+        href: "/",
+      },
+      {
+        text: "Nous contacter",
+        href: "/",
+      },
+    ],
+    footerSocials: [
+      {
+        icon: "facebook",
+        href: "https://www.facebook.com",
+      },
+      {
+        icon: "twitter",
+        href: "https://www.twitter.com/",
+      },
+      {
+        icon: "instagram",
+        href: "https://www.instagram.com/",
+      },
+      {
+        icon: "linkedin",
+        href: "https://www.linkedin.com/",
+      },
+    ],
+  }),
+});
 </script>
 
 <style lang="scss" scoped>
+$primaryColor: #62cc75;
+$secondaryColor: #2e3842;
 
-  $primaryColor: #62cc75;
-  $secondaryColor: #2e3842;
+#footer {
+  background: $secondaryColor;
+  color: #fff;
+  font-weight: 300;
+  padding: 20px;
 
-  #footer{
-    background:$secondaryColor;
-    color:#fff;
-    font-weight:300;
-    padding: 20px;
+  address {
+    font-style: normal;
+    line-height: 20px;
+    margin: 5px 3px;
+  }
+  address,
+  label {
+    font-size: 13px;
+    margin: 5px 5px;
+  }
 
-    address{
-      font-style: normal;
-      line-height: 20px;
-      margin: 5px 3px;
+  ul {
+    list-style: none;
+
+    li {
+      padding: 2px 0;
     }
-    address, label{
-      font-size:13px;
-      margin: 5px 5px;
+    a {
+      font-size: 17px;
+      text-decoration: none;
+      font-weight: 400;
     }
+  }
+  .socials {
+    a {
+      color: transparent;
+      display: inline-block;
+      margin: 15px 6px 0 0;
 
-    ul{
-      list-style: none;
+      i {
+        color: $primaryColor;
+        font-size: 30px;
 
-      li{
-        padding: 2px 0;
-      }
-      a{
-        font-size: 17px;
-        text-decoration: none;
-        font-weight:400;
-      }
-    }
-    .socials{
-      a{
-        color:transparent;
-        display:inline-block;
-        margin: 15px 6px 0 0;
-
-        i{
-          color:$primaryColor;
-          font-size: 30px;
-
-          &:hover{
-            color:#fff;
-          }
+        &:hover {
+          color: #fff;
         }
       }
     }
   }
+}
 
-  @media all and (max-width: 960px){
-    #footer{
-      .col-inner{
-        display:inline-block;
-        margin:0 10%;
-      }
-    }
-    ul{
-      padding:0;
+@media all and (max-width: 960px) {
+  #footer {
+    .col-inner {
+      display: inline-block;
+      margin: 0 10%;
     }
   }
+  ul {
+    padding: 0;
+  }
+}
 
-  @media all and (min-width: 961px){
-    #footer{
-      [class^='col-']{
-        text-align: center;
-      }
-      .col-inner{
-        text-align: left;
-        display:inline-block;
-      }
+@media all and (min-width: 961px) {
+  #footer {
+    [class^="col-"] {
+      text-align: center;
+    }
+    .col-inner {
+      text-align: left;
+      display: inline-block;
     }
   }
-
+}
 </style>

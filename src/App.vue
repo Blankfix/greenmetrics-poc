@@ -7,11 +7,12 @@
 </template>
 
 <script>
-import TheNavbar from '@/components/TheNavbar';
+import Vue from "vue";
+import TheNavbar from "@/components/TheNavbar";
 import TheFooter from "@/components/TheFooter";
 
-export default {
-  name: 'App',
+export default Vue.extend({
+  name: "App",
 
   components: {
     TheFooter,
@@ -21,8 +22,8 @@ export default {
   data: () => ({
     //
   }),
-};
+});
 </script>
 <style lang="scss">
-  @import "./assets/styles/app.scss";
+@import "./assets/styles/app.scss";
 </style>

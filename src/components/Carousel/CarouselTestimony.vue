@@ -35,63 +35,74 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  name: "CarouselTestimony",
 
-export default {
-  name: 'CarouselTestimony',
-
-  data () {
+  data() {
     return {
       colors: [
-        'green',
-        'secondary',
-        'yellow darken-4',
-        'red lighten-2',
-        'orange darken-1',
+        "green",
+        "secondary",
+        "yellow darken-4",
+        "red lighten-2",
+        "orange darken-1",
       ],
       cycle: false,
       slides: [
-          {
-            name: `Alain TÉRIEUR`,
-            job: `Frère d'Alex`,
-            img: `https://thispersondoesnotexist.com/image`,
-            quote: `Nous avons pu nous apercevoir que déverser nos déchets dans les rivières n'était pas une solution pérenne.`
-          },
-          {
-            name: `Camille ONNETTE`,
-            job: `Employée chez Persona`,
-            img: `https://thispersondoesnotexist.com/image`,
-            quote: `Je n'existe pas vraiment, et j'en suis triste, mais ça va car ma tristesse n'existe pas, elle non plus.`
-          },
-          {
-            name: `Adam TROIJOURS`,
-            job: `Président d'une présipauté`,
-            img: `https://thispersondoesnotexist.com/image`,
-            quote: `Je suis quelqu'un d'important...`
-          },
-          {
-            name: `Jean-Philippe ERBIEN`,
-            job: `PDG de Redoutables`,
-            img: `https://thispersondoesnotexist.com/image`,
-            quote: `Je suis bien plus important que l'autre gugus !`
-          }
+        {
+          name: `Alain TÉRIEUR`,
+          job: `Frère d'Alex`,
+          img: `https://thispersondoesnotexist.com/image`,
+          quote: `Nous avons pu nous apercevoir que déverser nos déchets dans les rivières n'était pas une solution pérenne.`,
+        },
+        {
+          name: `Camille ONNETTE`,
+          job: `Employée chez Persona`,
+          img: `https://thispersondoesnotexist.com/image`,
+          quote: `Je n'existe pas vraiment, et j'en suis triste, mais ça va car ma tristesse n'existe pas, elle non plus.`,
+        },
+        {
+          name: `Adam TROIJOURS`,
+          job: `Président d'une présipauté`,
+          img: `https://thispersondoesnotexist.com/image`,
+          quote: `Je suis quelqu'un d'important...`,
+        },
+        {
+          name: `Jean-Philippe ERBIEN`,
+          job: `PDG de Redoutables`,
+          img: `https://thispersondoesnotexist.com/image`,
+          quote: `Je suis bien plus important que l'autre gugus !`,
+        },
       ],
-    }
-  }
-}
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
-  $secondaryColor: #2e3842;
+$secondaryColor: #2e3842;
 
-  .carousel-testimony{
-    .v-list-item__content{
-      font-weight: 300;
-      font-size: 15px;
-      color: $secondaryColor;
-      line-height: 1.3;
-    }
-    .v-list{
-      height: 84%;
-    }
+.carousel-testimony {
+  .v-list-item__content {
+    font-weight: 300;
+    font-size: 15px;
+    color: $secondaryColor;
+    line-height: 1.3;
   }
+  .v-list {
+    height: 84%;
+  }
+}
+
+@media all and (max-width: 764px) {
+  .v-avatar {
+    height: 110px !important;
+    min-width: 110px !important;
+    width: 110px !important;
+  }
+  .v-list-item {
+    flex-direction: column;
+  }
+}
 </style>

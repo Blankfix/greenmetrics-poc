@@ -25,4 +25,7 @@ body {
   text-align: justify;
   padding-bottom: 20px !important; }
 
+picture {
+  display: contents; }
+
 /*# sourceMappingURL=app.css.map */
