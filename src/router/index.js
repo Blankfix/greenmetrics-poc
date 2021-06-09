@@ -17,17 +17,17 @@ const routes = [
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     component: () => import('../views/About.vue')
   },
   {
     path: '/faq',
-    name: 'FAQ',
+    name: 'faq',
     component: () => import('../views/Faq.vue')
   },
   {
     path: '/legals',
-    name: 'Mentions légales',
+    name: 'legals',
     component: () => import('../views/Legals.vue')
   }
 ]

@@ -94,4 +94,15 @@ export default {
       height: 84%;
     }
   }
+
+  @media all and (max-width: 764px){
+    .v-avatar{
+      height: 110px !important;
+      min-width: 110px !important;
+      width: 110px !important;
+    }
+    .v-list-item{
+      flex-direction: column;
+    }
+  }
 </style>

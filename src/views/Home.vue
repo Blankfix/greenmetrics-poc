@@ -39,19 +39,19 @@
             alt="Quels types d'initiatives ?"
           )
 
-        v-row.home-pleas(align="center")
-          v-col.home-plea-img.text-center(cols="12" md="6")
-            v-img(
-              src="../assets/img/img-sample.png"
-            )
-          v-col.text-center(cols="12" md="6")
-            div.home-plea
-              h4 Pourquoi investir des fonds dans des éco-projets ?
-              ul
-                li Soigner l’image de l’entreprise
-                li Se différencier sur le marché
-                li Limiter le gaspillage, faire des économies
-                li Des gains de productivité
+        v-col.home-plea-img.text-center(cols="12" md="6")
+          v-img(
+            max-width="400"
+            src="../assets/img/img-sample.png"
+          )
+        v-col.text-center(cols="12" md="6")
+          div.home-plea
+            h4 Pourquoi investir des fonds dans des éco-projets ?
+            ul
+              li Soigner l’image de l’entreprise
+              li Se différencier sur le marché
+              li Limiter le gaspillage, faire des économies
+              li Des gains de productivité
 
     form-register-and-sign-in
 
@@ -316,6 +316,11 @@ import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
         width: 100%;
         text-align: center;
         align-items: center;
+      }
+    }
+    #testimony{
+      .bg-icon{
+        font-size: 220px;
       }
     }
   }

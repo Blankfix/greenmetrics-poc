@@ -8,14 +8,19 @@
     )
       div.d-flex.align-center
         v-app-bar-nav-icon(  @click.stop="drawer = !drawer" )
-        v-img(
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          :src="require('../assets/img/logo-greenjection-light.svg')"
-          transition="scale-transition"
-          width="120"
-        )
+        picture
+          source(
+            media="(max-width: 374px)"
+            :srcset="require('../assets/img/favicon.png')"
+          )
+          source(
+            media="(min-width: 375px)"
+            :srcset="require('../assets/img/logo-greenjection-light.svg')"
+            width="120"
+          )
+          img(
+            :src="require('../assets/img/logo-greenjection-light.svg')"
+          )
 
       v-spacer
 
