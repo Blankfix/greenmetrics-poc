@@ -83,8 +83,9 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'FormRegister',
+import Vue from "vue";
+export default Vue.extend({
+  name: "FormRegister",
   data: () => ({
     valid: true,
 
@@ -97,34 +98,36 @@ export default {
     loginPassword: "",
     loginEmail: "",
     loginEmailRules: [
-      v => !!v || "Ce champ est obligatoire",
-      v => /.+@.+\..+/.test(v) || "L'email doit être valide"
+      (v: string) => !!v || "Ce champ est obligatoire",
+      (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
     ],
     emailRules: [
-      v => !!v || "Ce champ est obligatoire",
-      v => /.+@.+\..+/.test(v) || "L'email doit être valide"
+      (v: string) => !!v || "Ce champ est obligatoire",
+      (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
     ],
 
     show1: false,
     rules: {
-      required: value => !!value || "Ce champ est obligatoire",
-      min: v => (v && v.length >= 8) || "8 caractères minimum"
-    }
+      required: (value: string) => !!value || "Ce champ est obligatoire",
+      min: (v: string) => (v && v.length >= 8) || "8 caractères minimum",
+    },
   }),
   methods: {
     validate() {
-      if (this.$refs.loginForm.validate()) {
+      if ((this.$refs.registerForm as Vue & { validate: () => boolean }).validate()) {
         console.log();
       }
-    }
+    },
   },
   computed: {
     passwordMatch() {
-      return () => this.password === this.verify || "Le mot de passe doit correspondre";
-    }
+      return () =>
+        this.password === this.verify || "Le mot de passe doit correspondre";
+    },
+    // registerForm(): Vue & { validate: () => boolean } {
+    //   return this.$refs.registerForm as Vue & { validate: () => boolean }
+    // }
   },
-}
+});
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

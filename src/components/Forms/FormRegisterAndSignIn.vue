@@ -24,25 +24,23 @@
               v-card.px-4
                 form-sign-in
 
-
 </template>
 
 <script lang="ts">
-import FormSignIn from "./FormSignIn";
-import FormRegister from "./FormRegister";
-export default {
-  name: 'FormRegisterAndSignIn',
-  components: {FormRegister, FormSignIn},
+import Vue from "vue";
+import FormSignIn from "./FormSignIn.vue";
+import FormRegister from "./FormRegister.vue";
+export default Vue.extend({
+  name: "FormRegisterAndSignIn",
+  components: { FormRegister, FormSignIn },
   data: () => ({
     dialog: true,
     tab: 0,
     tabs: [
-      {name:"S'inscrire", icon:"mdi-account-outline"},
-      {name:"Se connecter", icon:"mdi-account"}
+      { name: "S'inscrire", icon: "mdi-account-outline" },
+      { name: "Se connecter", icon: "mdi-account" },
     ],
   }),
-}
+});
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

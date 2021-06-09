@@ -11,32 +11,30 @@
 </template>
 
 <script>
+import Vue from "vue";
 import $i18n from "@/i18n";
 
-export default {
-  name: 'LocaleSelect',
-  data () {
+export default Vue.extend({
+  name: "LocaleSelect",
+  data() {
     return {
-      currentLang: 'fr',
-      langs: $i18n.availableLocales
-    }
+      currentLang: "fr",
+      langs: $i18n.availableLocales,
+    };
   },
   methods: {
     switchLocale(value) {
       console.log(value);
-    }
-  }
-}
-
+    },
+  },
+});
 </script>
 
 <style lang="scss" scoped>
-
-.locale-select{
+.locale-select {
   max-width: 50px;
   margin: 0 0 0 15px;
   position: relative;
   top: 6px;
 }
-
 </style>

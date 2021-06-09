@@ -72,37 +72,38 @@
 </template>
 
 <script lang="ts">
-import LocaleSelect from '../components/LocaleSelect';
+import Vue from "vue";
+import LocaleSelect from "../components/LocaleSelect.vue";
 
-export default {
-  name: 'TheNavbar',
-  components:{
-    LocaleSelect
+export default Vue.extend({
+  name: "TheNavbar",
+  components: {
+    LocaleSelect,
   },
   data: () => ({
     user: {
-      isLoggedIn : false,
+      isLoggedIn: false,
     },
     linksMainMenu: [
       {
-        text: 'Accueil',
-        href: '/',
-        icon: 'view-dashboard',
+        text: "Accueil",
+        href: "/",
+        icon: "view-dashboard",
       },
       {
-        text: 'À propos',
-        href: '/about',
-        icon: 'help-box',
+        text: "À propos",
+        href: "/about",
+        icon: "help-box",
       },
       {
-        text: 'FAQ',
-        href: '/faq',
-        icon: 'school',
+        text: "FAQ",
+        href: "/faq",
+        icon: "school",
       },
       {
-        text: 'Mentions légales',
-        href: '/legals',
-        icon: 'alert',
+        text: "Mentions légales",
+        href: "/legals",
+        icon: "alert",
       },
     ],
     drawer: false,
@@ -110,12 +111,10 @@ export default {
   }),
 
   watch: {
-    group () {
-      this.drawer = false
+    group() {
+      this.drawer = false;
     },
   },
-}
+});
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

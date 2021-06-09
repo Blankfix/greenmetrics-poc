@@ -22,36 +22,34 @@
           p {{$t('card3Content1')}}
           p {{$t('card3Content2')}}
 
-
-
-
-
 </template>
 
 <script lang="ts">
-import CardSingle from  './CardSingle'
+import Vue from "vue";
+import CardSingle from "./CardSingle.vue";
 
-export default {
-  name: 'CardWrapper',
+export default Vue.extend({
+  name: "CardWrapper",
 
   props: {
-    desktopCols : {
-      type: [Number, String],
-      default () {
-        return this.cardIcon;
-      }},
+    desktopCols: {
+      type: String,
+      default(): string {
+        return this.desktopCols;
+      },
+    },
   },
 
   components: {
     CardSingle,
   },
-}
+});
 </script>
 
 <style lang="scss" scoped>
-  .std-cards{
-    padding: 60px 0 50px;
-  }
+.std-cards {
+  padding: 60px 0 50px;
+}
 </style>
 
 <i18n>
