@@ -9,7 +9,7 @@
       v-row
         v-col(cols="12" sm="12" md="12")
           v-text-field(
-            v-model="compagny"
+            v-model="company"
             :rules="[rules.required]"
             label="Société"
             maxlength="30"
@@ -84,23 +84,20 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { User } from "@/classes/User";
+import {globalStore} from "@/main";
 export default Vue.extend({
   name: "FormRegister",
   data: () => ({
     valid: true,
 
-    compagny: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    verify: "",
-    loginPassword: "",
-    loginEmail: "",
-    loginEmailRules: [
-      (v: string) => !!v || "Ce champ est obligatoire",
-      (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
-    ],
+    company: "Le Charbonneur",
+    firstName: "Cyril",
+    lastName: "DECONINCK",
+    email: "cyril@lecharbonneur.com",
+    password: "bonjour5555",
+    verify: "bonjour5555",
+
     emailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
       (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
@@ -114,8 +111,18 @@ export default Vue.extend({
   }),
   methods: {
     validate() {
-      if ((this.$refs.registerForm as Vue & { validate: () => boolean }).validate()) {
-        console.log();
+      if (
+        (
+          this.$refs.registerForm as Vue & { validate: () => boolean }
+        ).validate()
+      ) {
+        console.log(globalStore.user);
+        globalStore.user.company = this.company;
+        globalStore.user.firstName = this.firstName;
+        globalStore.user.lastName = this.lastName;
+        globalStore.user.email = this.email;
+        globalStore.user.password = btoa(this.password); // just for fun btoa & atob base64 encryption
+        globalStore.user.isConnected = true;
       }
     },
   },

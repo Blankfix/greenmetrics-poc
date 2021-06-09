@@ -19,13 +19,11 @@
         v-col(cols="12")
           v-text-field(
             v-model="loginPassword"
-            :append-icon="show1?'eye':'eye-off'"
             :rules="[rules.required]"
-            :type="show1 ? 'text' : 'password'"
+            :type="password"
             autocomplete="new-password"
             name="input-10-1"
             label="Mot de passe"
-            @click:append="show1 = !show1"
           )
 
         v-col.d-flex(cols="12" sm="6" xsm="12")
@@ -45,29 +43,20 @@
 
 <script lang="ts">
 import Vue from "vue";
+import {globalStore} from "@/main";
 export default Vue.extend({
   name: "FormSignIn",
   data: () => ({
     valid: true,
 
-    compagny: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    verify: "",
-    loginPassword: "",
     loginEmail: "",
+    loginPassword: "",
+    password: "",
     loginEmailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
       (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
     ],
-    emailRules: [
-      (v: string) => !!v || "Ce champ est obligatoire",
-      (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
-    ],
 
-    show1: false,
     rules: {
       required: (value: string) => !!value || "Ce champ est obligatoire",
       min: (v: string) => (v && v.length >= 8) || "8 caractères minimum",
@@ -76,19 +65,16 @@ export default Vue.extend({
   methods: {
     validate() {
       if ((this.$refs.loginForm as Vue & { validate: () => boolean }).validate()) {
-        console.log();
+        console.log(globalStore.user);
       }
     },
   },
-  computed: {
-    passwordMatch() {
-      return () =>
-        this.password === this.verify || "Le mot de passe doit correspondre";
-    },
-    // loginForm(): Vue & { validate: () => boolean } {
-    //   return this.$refs.loginForm as Vue & { validate: () => boolean }
-    // }
-  },
+  // computed: {
+  //   passwordMatch() {
+  //     return () =>
+  //       this.loginPassword === this.verify || "Le mot de passe doit correspondre";
+  //   },
+  //},
 });
 </script>
 <style lang="scss" scoped></style>

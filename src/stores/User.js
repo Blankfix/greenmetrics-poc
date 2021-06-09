@@ -1,28 +1,42 @@
-import { __decorate, __extends } from "tslib";
-import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.name = "";
-        return _this;
-    }
-    User.prototype.setName = function (newName) {
-        this.name = newName;
-    };
-    User.prototype.updateName = function (newName) {
-        this.context.commit("setName", newName);
-    };
-    __decorate([
-        Mutation
-    ], User.prototype, "setName", null);
-    __decorate([
-        Action
-    ], User.prototype, "updateName", null);
-    User = __decorate([
-        Module({ namespaced: true, name: "test" })
-    ], User);
-    return User;
-}(VuexModule));
-export default User;
+"use strict";
+// User store based on VueX, maybe later
+// import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
+// @Module({ namespaced: true, name: "test" })
+// class User extends VuexModule {
+//
+//   protected compagny: "",
+//   protected firstName: "",
+//   protected lastName: "",
+//   protected email: "",
+//   protected password: "",
+//
+//   constructor(fname, lname)
+//   {
+//     super;
+//     this.FirstName = fname;
+//     this.LastName = lname;
+//   }
+//   getFullName()
+//   {
+//     return this.FirstName+' '+ this.LastName;
+//   }
+//   getFirstName()
+//   {
+//     return this.FirstName;
+//   }
+//   getLastName()
+//   {
+//     return this.LastName;
+//   }
+//
+//   @Mutation
+//   public setName(newName: string): void {
+//     this.name = newName;
+//   }
+//   @Action
+//   public updateName(newName: string): void {
+//     this.context.commit("setName", newName);
+//   }
+// }
+// export default User;
 //# sourceMappingURL=User.js.map
