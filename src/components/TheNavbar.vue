@@ -41,12 +41,14 @@
         icon
         v-if="isConnected"
         @click="disconnectUser()"
+        title="Se déconnecter"
       )
         v-icon mdi-logout
       v-btn(
         icon
         v-else
         @click="showModal()"
+        title="Se connecter"
       )
         v-icon mdi-login
 
@@ -151,6 +153,10 @@ export default Vue.extend({
 
   computed: {
     isConnected() {
+      if(globalStore.user.isConnected){
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.drawer = true;
+      }
       return globalStore.user.isConnected;
     },
     userName(){

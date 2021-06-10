@@ -1,0 +1,80 @@
+[
+  {
+    "catType":"plants",
+    "catName":"Implantation zones vertes",
+    "title":"Les Homo-sapins",
+    "actors":["M. Gilles Bouleau", "Mme Christine Bouture"],
+    "place":"Breizh",
+    "description":"Planter autant de sapins que de dolmens",
+    "goal": "21 000€",
+    "current": "7 600€",
+    "remaining": "3 400€",
+    "candidates": 17,
+    "website": "https://leshomosapins.fr"
+  },
+  {
+    "catType":"green_energy",
+    "catName":"Énergie verte",
+    "title":"Centrale à charbon",
+    "actors":["M. Burns", "M. Smitters"],
+    "place":"Springfield",
+    "description":"Le charbon est naturel, donc ça va. Faites-nous confiance !",
+    "goal": "Aucune limite",
+    "current": "0",
+    "remaining": "Non déterminé",
+    "candidates": 0,
+    "website": "https://404.error"
+  },
+  {
+    "catType":"local_actions",
+    "catName":"Actions locales",
+    "title":"Nettoyer les plages",
+    "actors":["M. Propre"],
+    "place":"Littéralement littoral",
+    "description":"Des chouchous sans chichi",
+    "goal": "5000",
+    "current": "7400",
+    "remaining": "Atteint",
+    "candidates": 789,
+    "website": ""
+  },
+  {
+    "catType":"local_actions",
+    "catName":"Actions locales",
+    "title":"Nettoyer les rues",
+    "actors":["Canard Baissé"],
+    "place":"C'est arrivé près de chez vous",
+    "description":"",
+    "goal": "0",
+    "current": "1234",
+    "remaining": "Atteint",
+    "candidates": 45,
+    "website": ""
+  },
+  {
+    "catType":"fictif",
+    "catName":"Dyson Sphere Program",
+    "title":"Bételgeuse",
+    "actors":["James Dyson"],
+    "place":"Gueusifier les étoiles",
+    "description":"Aspiration interstellaire",
+    "goal": "Irréalisable",
+    "current": "Beaucoup trop",
+    "remaining": "Encore plus",
+    "candidates": 7674000000,
+    "website": "https://earth.universe"
+  },
+  {
+    "catType":"green_energy",
+    "catName":"Énergie verte",
+    "title":"Éolienne domestique partagée",
+    "actors":["M. Eliott Hélios"],
+    "place":"Mont Ventoux",
+    "description":"Brasser de l'air de manière constructive.",
+    "goal": "47 000€",
+    "current": "4 700€",
+    "remaining": "42 300€",
+    "candidates": 10,
+    "website": "https://onair.io"
+  }
+]

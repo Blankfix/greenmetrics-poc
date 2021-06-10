@@ -40,5 +40,8 @@ picture {
 
   .v-app-bar img {
     max-width: 40px; } }
+@media all and (min-width: 765px) {
+  #catalog, #registerlogin, #dashboard, #faq, #about, #faq {
+    min-height: calc(100% - 188px); } }
 
 /*# sourceMappingURL=app.css.map */
