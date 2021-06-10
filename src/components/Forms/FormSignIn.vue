@@ -106,13 +106,12 @@ export default Vue.extend({
       }
     },
     toggleLoading() {
-          this.loading = !this.loading;
+      this.loading = !this.loading;
     },
   },
   computed: {
     isLoading() {
-      return () =>
-        this.loading;
+      return () => this.loading;
     },
   },
 });
