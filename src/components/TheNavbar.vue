@@ -56,7 +56,7 @@
 
     v-navigation-drawer(
       v-model="drawer"
-      :permanent="isConnected ? true : null"
+      :permanent="isOpened ? true : null"
       app
     )
       v-list(
@@ -154,8 +154,23 @@ export default Vue.extend({
 
   computed: {
     isConnected() {
-      console.log("connecté " + globalStore.user.isConnected);
       return globalStore.user.isConnected;
+    },
+    isOpened() {
+      if (globalStore.user.isConnected) {
+        switch (this.$vuetify.breakpoint.name) {
+          case "xs":
+            return false;
+          case "sm":
+            return false;
+          case "md":
+            return false;
+          default:
+            return true;
+        }
+      } else {
+        return false;
+      }
     },
     userName() {
       return globalStore.user.firstName;
