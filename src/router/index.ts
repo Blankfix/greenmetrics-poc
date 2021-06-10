@@ -30,6 +30,16 @@ const routes: Array<RouteConfig> = [
     name: "legals",
     component: () => import("../views/Legals.vue"),
   },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: () => import("../views/Dashboard.vue"),
+  },
+  {
+    path: "/projects",
+    name: "projects",
+    component: () => import("../views/Projects.vue"),
+  },
 ];
 
 const router = new VueRouter({

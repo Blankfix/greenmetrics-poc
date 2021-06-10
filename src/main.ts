@@ -18,6 +18,12 @@ export const globalStore = new Vue({
       },
       false
     ),
+    dialog: {
+      visible: false,
+      header: "",
+      content: "",
+      footer: "",
+    },
   },
 });
 

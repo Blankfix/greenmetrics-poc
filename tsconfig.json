@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     //"target": "es5",
+    "resolveJsonModule": true,
     "module": "esnext",
     "pretty": true,
     "strict": true,

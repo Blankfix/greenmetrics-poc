@@ -69,6 +69,18 @@
             @click:append="show1 = !show1"
           )
 
+        v-col(cols="12")
+          v-card(
+            v-show="isLoading()"
+            color="primary"
+            dark)
+            v-card-text Opération en cours...
+              v-progress-linear(
+                indeterminate
+                color="white"
+                class="mb-0"
+              )
+
         v-spacer
 
         v-col.d-flex.ml-auto(cols="12" sm="3" xsm="12")
@@ -90,13 +102,14 @@ export default Vue.extend({
   name: "FormRegister",
   data: () => ({
     valid: true,
+    loading: false,
 
     company: "Le Charbonneur",
     firstName: "Cyril",
     lastName: "DECONINCK",
     email: "cyril@lecharbonneur.com",
-    password: "bonjour5555",
-    verify: "bonjour5555",
+    password: "bonjour0000",
+    verify: "bonjour0000",
 
     emailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
@@ -116,20 +129,35 @@ export default Vue.extend({
           this.$refs.registerForm as Vue & { validate: () => boolean }
         ).validate()
       ) {
-        console.log(globalStore.user);
         globalStore.user.company = this.company;
         globalStore.user.firstName = this.firstName;
         globalStore.user.lastName = this.lastName;
         globalStore.user.email = this.email;
         globalStore.user.password = btoa(this.password); // just for fun btoa & atob base64 encryption
-        globalStore.user.isConnected = true;
+
+        setTimeout(() => {
+          this.toggleLoading();
+        }, 150);
+
+        setTimeout(() => {
+          this.toggleLoading();
+          globalStore.user.isConnected = true;
+        }, 1350);
+        console.log(globalStore.user);
       }
+    },
+    toggleLoading() {
+      this.loading = !this.loading;
     },
   },
   computed: {
     passwordMatch() {
       return () =>
         this.password === this.verify || "Le mot de passe doit correspondre";
+    },
+    isLoading() {
+      return () =>
+          this.loading;
     },
     // registerForm(): Vue & { validate: () => boolean } {
     //   return this.$refs.registerForm as Vue & { validate: () => boolean }

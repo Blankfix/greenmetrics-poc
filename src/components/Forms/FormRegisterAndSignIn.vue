@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container( v-if="!isConnected" )
+  v-container( v-if="!isConnected")
     v-row(justify="center")
       v-col(cols="12" md="9")
         v-card
