@@ -56,6 +56,7 @@
 
     v-navigation-drawer(
       v-model="drawer"
+      :permanent="isConnected ? true : null"
       app
     )
       v-list(
@@ -153,10 +154,7 @@ export default Vue.extend({
 
   computed: {
     isConnected() {
-      if(globalStore.user.isConnected){
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.drawer = true;
-      }
+      console.log("connecté " + globalStore.user.isConnected);
       return globalStore.user.isConnected;
     },
     userName(){
@@ -166,12 +164,14 @@ export default Vue.extend({
 
   methods: {
     disconnectUser() {
-      return (globalStore.user.isConnected = false);
+      setTimeout( function(){
+        console.log("testrentre");
+        globalStore.user.isConnected = false;
+        return this.drawer = false;
+      },1500 );
     },
     showModal() {
       globalStore.dialog.visible = true;
-      globalStore.dialog.header = "Test";
-      console.log( globalStore.dialog );
     },
   },
 });
