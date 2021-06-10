@@ -48,7 +48,6 @@ export default Vue.extend({
         { text: "Description", value: "description", filterable: false },
         { text: "Objectif", value: "goal", filterable: false },
         { text: "Récolté", value: "current", filterable: false },
-        { text: "Restant", value: "remaining, filterable: false" },
         { text: "Participants", value: "candidates", filterable: false },
         { text: "Site web", value: "website", filterable: false },
       ],

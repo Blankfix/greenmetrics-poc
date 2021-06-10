@@ -10,11 +10,11 @@
         v-app-bar-nav-icon(  @click.stop="drawer = !drawer" )
         picture
           source(
-            media="(max-width: 374px)"
+            media="(max-width: 430px)"
             :srcset="require('../assets/img/favicon.png')"
           )
           source(
-            media="(min-width: 375px)"
+            media="(min-width: 431px)"
             :srcset="require('../assets/img/logo-greenjection-light.svg')"
             width="120"
           )

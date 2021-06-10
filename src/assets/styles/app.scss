@@ -52,6 +52,8 @@ picture{
   .mobile-hidden{
     display: none !important;
   }
+}
+@media all and (max-width: 430px){
   .v-app-bar img {
     max-width: 40px;
   }

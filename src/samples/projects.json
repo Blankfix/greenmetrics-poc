@@ -54,10 +54,10 @@
   {
     "catType":"fictif",
     "catName":"Dyson Sphere Program",
-    "title":"Bételgeuse",
+    "title":"Aspiration interstellaire",
     "actors":["James Dyson"],
-    "place":"Gueusifier les étoiles",
-    "description":"Aspiration interstellaire",
+    "place":"Bételgeuse",
+    "description":"Gueusifier les étoiles",
     "goal": "Irréalisable",
     "current": "Beaucoup trop",
     "remaining": "Encore plus",

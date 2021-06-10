@@ -100,11 +100,11 @@
 
     v-container#reinsurance(fluid=true)
       v-row
-        v-col(cols
+        v-col(cols="12" md="auto"
           v-for="(reinsurance, k) in reinsurances"
           :key="k"
         )
-          v-img(
+          v-img.ma-auto(
             :src="reinsurance.src"
             width="170"
           )
@@ -337,6 +337,14 @@ $secondaryColor: #2e3842;
   .home-pleas > div:not(.home-plea-img) {
     order: 2;
   }
+}
+@media all and (min-width: 764px) {
+  #reinsurance{
+    .col-md-auto{
+      flex:1;
+    }
+  }
+
 }
 @media all and (max-width: 764px) {
   #testimony {
