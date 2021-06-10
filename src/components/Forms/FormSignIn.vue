@@ -64,8 +64,8 @@ export default Vue.extend({
     users: json,
     loading: false,
 
-    loginEmail: "cyril@lecharbonneur.com",
-    loginPassword: "bonjour5555",
+    loginEmail: "", //cyril@lecharbonneur.com
+    loginPassword: "",//bonjour5555
     loginEmailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
       (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",

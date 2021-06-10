@@ -104,12 +104,12 @@ export default Vue.extend({
     valid: true,
     loading: false,
 
-    company: "Le Charbonneur",
-    firstName: "Cyril",
-    lastName: "DECONINCK",
-    email: "cyril@lecharbonneur.com",
-    password: "bonjour0000",
-    verify: "bonjour0000",
+    company: "", //"Le Charbonneur",
+    firstName: "", //"Cyril",
+    lastName: "", //"DECONINCK",
+    email: "", //"cyril@lecharbonneur.com",
+    password: "", //"bonjour0000",
+    verify: "", //"bonjour0000",
 
     emailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
