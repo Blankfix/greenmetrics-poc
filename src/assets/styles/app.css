@@ -36,8 +36,8 @@ picture {
     max-width: 1185px; } }
 @media all and (max-width: 764px) {
   .mobile-hidden {
-    display: none !important; }
-
+    display: none !important; } }
+@media all and (max-width: 430px) {
   .v-app-bar img {
     max-width: 40px; } }
 @media all and (min-width: 765px) {
