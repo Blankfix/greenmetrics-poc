@@ -96,6 +96,9 @@ $secondaryColor: #2e3842;
 }
 
 @media all and (max-width: 764px) {
+  .carousel-testimony{
+    margin-top: 30px;
+  }
   .v-avatar {
     height: 110px !important;
     min-width: 110px !important;

@@ -180,6 +180,8 @@ export default Vue.extend({
   methods: {
     disconnectUser() {
       globalStore.user.isConnected = false;
+      if (this.$router.currentRoute.name != "login")
+        this.$router.push("/login");
       return (this.drawer = false);
     },
     showModal() {
