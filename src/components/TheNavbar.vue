@@ -157,18 +157,15 @@ export default Vue.extend({
       console.log("connecté " + globalStore.user.isConnected);
       return globalStore.user.isConnected;
     },
-    userName(){
+    userName() {
       return globalStore.user.firstName;
-    }
+    },
   },
 
   methods: {
     disconnectUser() {
-      setTimeout( function(){
-        console.log("testrentre");
-        globalStore.user.isConnected = false;
-        return this.drawer = false;
-      },1500 );
+      globalStore.user.isConnected = false;
+      return (this.drawer = false);
     },
     showModal() {
       globalStore.dialog.visible = true;

@@ -31,32 +31,32 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {globalStore} from "@/main";
+import { globalStore } from "@/main";
 import JSONprojects from "@/samples/projects.json";
 
 export default Vue.extend({
   name: "Projects",
   data() {
-    return{
-      search: '',
+    return {
+      search: "",
       projects: JSONprojects,
       headers: [
         { text: "Type", value: "catName" },
         { text: "Intitulé", value: "title" },
-        { text: "Acteurs", value: "actors", filterable: false},
+        { text: "Acteurs", value: "actors", filterable: false },
         { text: "Localité", value: "place" },
         { text: "Description", value: "description", filterable: false },
         { text: "Objectif", value: "goal", filterable: false },
         { text: "Récolté", value: "current", filterable: false },
         { text: "Restant", value: "remaining, filterable: false" },
         { text: "Participants", value: "candidates", filterable: false },
-        { text: "Site web", value: "website", filterable: false }
+        { text: "Site web", value: "website", filterable: false },
       ],
-    }
+    };
   },
   beforeCreate() {
-    if( !globalStore.user.isConnected ){
-      this.$router.push('/login');
+    if (!globalStore.user.isConnected) {
+      this.$router.push("/login");
     }
   },
 });
