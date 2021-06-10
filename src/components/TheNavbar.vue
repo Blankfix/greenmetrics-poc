@@ -21,6 +21,9 @@
           img(
             :src="require('../assets/img/logo-greenjection-light.svg')"
           )
+          div.mobile-hidden( v-if="isConnected" )
+            v-divider(vertical)
+            span.ml-5 Bonjour {{userName}},
 
       v-spacer
 
@@ -30,20 +33,22 @@
 
       v-btn(
         icon
-        v-if="user.isLoggedIn"
+        v-show="isConnected"
+      )
+        v-icon mdi-account-circle
+
+      v-btn(
+        icon
+        v-if="isConnected"
+        @click="disconnectUser()"
       )
         v-icon mdi-logout
       v-btn(
         icon
         v-else
+        @click="showModal()"
       )
         v-icon mdi-login
-
-      v-btn(
-        icon
-        v-show="user.isLoggedIn"
-      )
-        v-icon mdi-account_circle
 
       locale-select
 
@@ -59,6 +64,17 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         )
+          v-list-item( v-for="(link, b) in linksBackoffice" :key="'bo'+b"
+            v-if="isConnected"
+            link
+            :to="link.href"
+          )
+            v-list-item-icon
+              v-icon mdi-{{ link.icon }}
+            v-list-item-title {{ link.text }}
+
+          v-divider( v-show="isConnected" )
+
           v-list-item( v-for="(link, k) in linksMainMenu" :key="k"
             link
             :to="link.href"
@@ -67,13 +83,18 @@
               v-icon mdi-{{ link.icon }}
             v-list-item-title {{ link.text }}
 
-
-
+        //template( v-slot:modalHeader )
+        //  div Header
+        //template( v-slot:modalContent )
+        //  div Content
+        //template( v-slot:modalContent )
+        //  div Footer
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import LocaleSelect from "../components/LocaleSelect.vue";
+import { globalStore } from "@/main";
 
 export default Vue.extend({
   name: "TheNavbar",
@@ -106,6 +127,18 @@ export default Vue.extend({
         icon: "alert",
       },
     ],
+    linksBackoffice: [
+      {
+        text: "Tableau de bord",
+        href: "/dashboard",
+        icon: "gauge",
+      },
+      {
+        text: "Projets",
+        href: "/projects",
+        icon: "format-list-bulleted-type",
+      },
+    ],
     drawer: false,
     group: null,
   }),
@@ -113,6 +146,26 @@ export default Vue.extend({
   watch: {
     group() {
       this.drawer = false;
+    },
+  },
+
+  computed: {
+    isConnected() {
+      return globalStore.user.isConnected;
+    },
+    userName(){
+      return globalStore.user.firstName;
+    }
+  },
+
+  methods: {
+    disconnectUser() {
+      return (globalStore.user.isConnected = false);
+    },
+    showModal() {
+      globalStore.dialog.visible = true;
+      globalStore.dialog.header = "Test";
+      console.log( globalStore.dialog );
     },
   },
 });

@@ -9,9 +9,16 @@
               h3.secondary--text(v-html="$t('homeSloganH3')")
               div.text-right
                 span.d-inline-block.text-center
-                  v-btn.green.theme--dark {{$t('homeSloganBtn')}}
+                  v-btn.green.theme--dark(
+                    @click="gotoForm()"
+                    v-if="!isConnected"
+                  ) {{$t('homeSloganBtn')}}
+                  v-btn.green.theme--dark(
+                    :to="'./dashboard'"
+                    v-else
+                  ) {{$t('homeSloganBtnConnected')}}
                   br
-                  em {{$t('homeSloganEm')}}
+                  em( v-show="!isConnected" ) {{$t('homeSloganEm')}}
 
       v-divider.half
 
@@ -53,7 +60,8 @@
               li Limiter le gaspillage, faire des économies
               li Des gains de productivité
 
-    form-register-and-sign-in
+    div#registerloginform(  ref="registerloginform"  v-if="!isConnected" )
+      form-register-and-sign-in
 
     div#cta
       v-container
@@ -107,6 +115,7 @@ import Vue from "vue";
 import FormRegisterAndSignIn from "../components/Forms/FormRegisterAndSignIn.vue";
 import CardWrapper from "../components/Card/CardWrapper.vue";
 import CarouselTestimony from "../components/Carousel/CarouselTestimony.vue";
+import { globalStore } from "@/main";
 
 export default Vue.extend({
   name: "Home",
@@ -131,6 +140,26 @@ export default Vue.extend({
         },
       ],
     };
+  },
+
+  methods: {
+    gotoForm() {
+      const element = this.$refs.registerloginform;
+      if (element instanceof HTMLElement) {
+        const top = element.offsetTop - 50;
+
+        window.scrollTo({
+          top: top,
+          behavior: "smooth",
+        });
+      }
+    },
+  },
+
+  computed: {
+    isConnected() {
+      return globalStore.user.isConnected;
+    },
   },
 
   components: {
@@ -331,12 +360,14 @@ $secondaryColor: #2e3842;
     "homeSloganH2": "Spot your flaws, <span class='green--text'>turn it to a strength</span>",
     "homeSloganH3": "Balance your carbone footprint <br> by financing ecological projects",
     "homeSloganBtn": "Create your account",
+    "homeSloganBtnConnected": "Explore and go to the dashboard",
     "homeSloganEm": "get your quote and free documentation"
   },
   "fr": {
     "homeSloganH2": "Repérez vos failles, <span class='green--text'>faites-en une force</span>",
     "homeSloganH3": "Compensez votre empreinte carbone <br> et participant à des initiatives écologiques",
     "homeSloganBtn": "Ouvrez votre compte",
+    "homeSloganBtnConnected": "Découvrir le tableau de bord",
     "homeSloganEm": "obtenez votre devis et une documentation gratuite"
   }
 }

@@ -36,6 +36,23 @@ picture{
   display: contents;
 }
 
-@media all and (max-width: 764px){
+.v-dialog{
+  .v-card__title{
+    justify-content: space-between;
+  }
+}
 
+@media (min-width: 1904px){
+  .container:not(.container--fluid) {
+    max-width: 1185px;
+  }
+}
+
+@media all and (max-width: 764px){
+  .mobile-hidden{
+    display: none !important;
+  }
+  .v-app-bar img {
+    max-width: 40px;
+  }
 }

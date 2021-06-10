@@ -9,7 +9,7 @@
       v-row
         v-col(cols="12" sm="12" md="12")
           v-text-field(
-            v-model="compagny"
+            v-model="company"
             :rules="[rules.required]"
             label="Société"
             maxlength="30"
@@ -69,6 +69,18 @@
             @click:append="show1 = !show1"
           )
 
+        v-col(cols="12")
+          v-card(
+            v-show="isLoading()"
+            color="primary"
+            dark)
+            v-card-text Opération en cours...
+              v-progress-linear(
+                indeterminate
+                color="white"
+                class="mb-0"
+              )
+
         v-spacer
 
         v-col.d-flex.ml-auto(cols="12" sm="3" xsm="12")
@@ -84,23 +96,21 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { User } from "@/classes/User";
+import {globalStore} from "@/main";
 export default Vue.extend({
   name: "FormRegister",
   data: () => ({
     valid: true,
+    loading: false,
 
-    compagny: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    verify: "",
-    loginPassword: "",
-    loginEmail: "",
-    loginEmailRules: [
-      (v: string) => !!v || "Ce champ est obligatoire",
-      (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
-    ],
+    company: "Le Charbonneur",
+    firstName: "Cyril",
+    lastName: "DECONINCK",
+    email: "cyril@lecharbonneur.com",
+    password: "bonjour0000",
+    verify: "bonjour0000",
+
     emailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
       (v: string) => /.+@.+\..+/.test(v) || "L'email doit être valide",
@@ -114,15 +124,40 @@ export default Vue.extend({
   }),
   methods: {
     validate() {
-      if ((this.$refs.registerForm as Vue & { validate: () => boolean }).validate()) {
-        console.log();
+      if (
+        (
+          this.$refs.registerForm as Vue & { validate: () => boolean }
+        ).validate()
+      ) {
+        globalStore.user.company = this.company;
+        globalStore.user.firstName = this.firstName;
+        globalStore.user.lastName = this.lastName;
+        globalStore.user.email = this.email;
+        globalStore.user.password = btoa(this.password); // just for fun btoa & atob base64 encryption
+
+        setTimeout(() => {
+          this.toggleLoading();
+        }, 150);
+
+        setTimeout(() => {
+          this.toggleLoading();
+          globalStore.user.isConnected = true;
+        }, 1350);
+        console.log(globalStore.user);
       }
+    },
+    toggleLoading() {
+      this.loading = !this.loading;
     },
   },
   computed: {
     passwordMatch() {
       return () =>
         this.password === this.verify || "Le mot de passe doit correspondre";
+    },
+    isLoading() {
+      return () =>
+          this.loading;
     },
     // registerForm(): Vue & { validate: () => boolean } {
     //   return this.$refs.registerForm as Vue & { validate: () => boolean }

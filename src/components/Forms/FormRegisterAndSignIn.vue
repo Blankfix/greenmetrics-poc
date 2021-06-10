@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container
+  v-container( v-if="!isConnected")
     v-row(justify="center")
       v-col(cols="12" md="9")
         v-card
@@ -30,6 +30,7 @@
 import Vue from "vue";
 import FormSignIn from "./FormSignIn.vue";
 import FormRegister from "./FormRegister.vue";
+import { globalStore } from "@/main";
 export default Vue.extend({
   name: "FormRegisterAndSignIn",
   components: { FormRegister, FormSignIn },
@@ -41,6 +42,11 @@ export default Vue.extend({
       { name: "Se connecter", icon: "mdi-account" },
     ],
   }),
+  computed: {
+    isConnected() {
+      return globalStore.user.isConnected;
+    },
+  },
 });
 </script>
 <style lang="scss" scoped></style>
