@@ -353,8 +353,6 @@ $secondaryColor: #2e3842;
       text-align: center;
       align-items: center;
     }
-  }
-  #testimony {
     .bg-icon {
       font-size: 220px;
     }
