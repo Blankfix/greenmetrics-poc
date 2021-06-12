@@ -6,11 +6,19 @@ interface UserFields {
   password: string;
 }
 
+const emptyFields = {
+  company: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+}
+
 export class User {
   private fields: UserFields;
   private _isConnected: boolean;
 
-  constructor(fields: UserFields, isConnected: boolean) {
+  constructor(fields: UserFields = emptyFields, isConnected = false) {
     this.fields = fields;
     this._isConnected = isConnected;
   }

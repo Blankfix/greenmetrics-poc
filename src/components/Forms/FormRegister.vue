@@ -97,19 +97,25 @@
 <script lang="ts">
 import Vue from "vue";
 import { User } from "@/classes/User";
-import {globalStore} from "@/main";
+import { globalStore } from "@/main";
 export default Vue.extend({
   name: "FormRegister",
   data: () => ({
     valid: true,
     loading: false,
 
-    company: "", //"Le Charbonneur",
-    firstName: "", //"Cyril",
-    lastName: "", //"DECONINCK",
-    email: "", //"cyril@lecharbonneur.com",
-    password: "", //"bonjour0000",
-    verify: "", //"bonjour0000",
+    //company: "", //"Le Charbonneur",
+    company: "Le Charbonneur",
+    //firstName: "", //"Cyril",
+    firstName: "Cyril",
+    //lastName: "", //"DECONINCK",
+    lastName: "DECONINCK",
+    //email: "", //"cyril@lecharbonneur.com",
+    email: "cyril@lecharbonneur.com",
+    //password: "", //"bonjour0000",
+    password: "bonjour0000",
+    //verify: "", //"bonjour0000",
+    verify: "bonjour0000",
 
     emailRules: [
       (v: string) => !!v || "Ce champ est obligatoire",
@@ -129,11 +135,23 @@ export default Vue.extend({
           this.$refs.registerForm as Vue & { validate: () => boolean }
         ).validate()
       ) {
-        globalStore.user.company = this.company;
-        globalStore.user.firstName = this.firstName;
-        globalStore.user.lastName = this.lastName;
-        globalStore.user.email = this.email;
-        globalStore.user.password = btoa(this.password); // just for fun btoa & atob base64 encryption
+        const userRegisterDatas = {
+          company: this.company,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          password: btoa(this.password),
+        };
+        console.log(userRegisterDatas);
+
+        this.$store.commit("update", userRegisterDatas);
+        this.$store.commit("connect");
+
+        // globalStore.user.company = this.company;
+        // globalStore.user.firstName = this.firstName;
+        // globalStore.user.lastName = this.lastName;
+        // globalStore.user.email = this.email;
+        // globalStore.user.password = btoa(this.password); // just for fun btoa & atob base64 encryption
 
         setTimeout(() => {
           this.toggleLoading();
@@ -143,7 +161,6 @@ export default Vue.extend({
           this.toggleLoading();
           globalStore.user.isConnected = true;
         }, 1350);
-        console.log(globalStore.user);
       }
     },
     toggleLoading() {
@@ -156,8 +173,7 @@ export default Vue.extend({
         this.password === this.verify || "Le mot de passe doit correspondre";
     },
     isLoading() {
-      return () =>
-          this.loading;
+      return () => this.loading;
     },
     // registerForm(): Vue & { validate: () => boolean } {
     //   return this.$refs.registerForm as Vue & { validate: () => boolean }

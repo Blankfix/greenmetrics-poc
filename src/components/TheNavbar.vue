@@ -154,10 +154,10 @@ export default Vue.extend({
 
   computed: {
     isConnected() {
-      return globalStore.user.isConnected;
+      return this.$store.getters.user._isConnected;
     },
     isOpened() {
-      if (globalStore.user.isConnected) {
+      if (this.$store.getters.user._isConnected) {
         switch (this.$vuetify.breakpoint.name) {
           case "xs":
             return false;
@@ -173,13 +173,13 @@ export default Vue.extend({
       }
     },
     userName() {
-      return globalStore.user.firstName;
+      return this.$store.getters.user.userFirstName;
     },
   },
 
   methods: {
     disconnectUser() {
-      globalStore.user.isConnected = false;
+      this.$store.commit('disconnect');
       if (this.$router.currentRoute.name != "login")
         this.$router.push("/login");
       return (this.drawer = false);

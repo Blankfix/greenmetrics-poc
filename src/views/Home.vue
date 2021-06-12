@@ -158,7 +158,7 @@ export default Vue.extend({
 
   computed: {
     isConnected() {
-      return globalStore.user.isConnected;
+      return this.$store.getters.user_isConnected;
     },
   },
 
@@ -339,12 +339,11 @@ $secondaryColor: #2e3842;
   }
 }
 @media all and (min-width: 764px) {
-  #reinsurance{
-    .col-md-auto{
-      flex:1;
+  #reinsurance {
+    .col-md-auto {
+      flex: 1;
     }
   }
-
 }
 @media all and (max-width: 764px) {
   #testimony {

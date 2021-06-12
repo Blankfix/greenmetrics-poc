@@ -44,7 +44,7 @@ export default Vue.extend({
   }),
   computed: {
     isConnected() {
-      return globalStore.user.isConnected;
+      return this.$store.getters.user._isConnected;
     },
   },
 });
