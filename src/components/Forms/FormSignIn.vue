@@ -54,7 +54,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { globalStore } from "@/main";
 import json from "@/samples/users.json";
 
 export default Vue.extend({
@@ -86,12 +85,15 @@ export default Vue.extend({
             this.users[u].email == this.loginEmail &&
             this.users[u].password == btoa(this.loginPassword)
           ) {
-            globalStore.user.company = this.users[u].company;
-            globalStore.user.firstName = this.users[u].firstName;
-            globalStore.user.lastName = this.users[u].lastName;
-            globalStore.user.email = this.users[u].email;
-            globalStore.user.password = this.users[u].password;
-            globalStore.user.isConnected = true;
+            const userRegisterDatas = {
+              company: this.users[u].company,
+              firstName: this.users[u].firstName,
+              lastName: this.users[u].lastName,
+              email: this.users[u].email,
+              password: btoa(this.users[u].password),
+            };
+
+            this.$store.commit("userUpdate", userRegisterDatas);
 
             setTimeout(() => {
               this.toggleLoading();
@@ -99,7 +101,8 @@ export default Vue.extend({
 
             setTimeout(() => {
               this.toggleLoading();
-              globalStore.dialog.visible = false;
+              this.$store.commit("userConnect");
+              this.$store.commit("closeModal");
             }, 850);
           }
         }

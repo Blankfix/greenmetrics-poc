@@ -173,19 +173,19 @@ export default Vue.extend({
       }
     },
     userName() {
-      return this.$store.getters.user.userFirstName;
+      return this.$store.getters.user._isConnected;
     },
   },
 
   methods: {
     disconnectUser() {
-      this.$store.commit('disconnect');
+      this.$store.commit('userDisconnect');
       if (this.$router.currentRoute.name != "login")
         this.$router.push("/login");
       return (this.drawer = false);
     },
     showModal() {
-      globalStore.dialog.visible = true;
+      return this.$store.commit('modalOpen');
     },
   },
 });

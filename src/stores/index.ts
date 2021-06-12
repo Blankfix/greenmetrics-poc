@@ -17,7 +17,6 @@ export default new Vuex.Store({
     user: {
       //namespaced: true,
       state: new User(),
-      actions: {},
       getters: {
         user: (state) => {
           return state;
@@ -42,15 +41,40 @@ export default new Vuex.Store({
         },
       },
       mutations: {
-        update(state, args) {
+        userUpdate(state, args) {
           state.fields = args;
         },
-        connect(state) {
+        userConnect(state) {
           state._isConnected = true;
         },
-        disconnect(state) {
+        userDisconnect(state) {
           state.fields = emptyFields;
           state._isConnected = false;
+        },
+      },
+      actions: {},
+    },
+    modal: {
+      state: {
+        _isVisible: false,
+      },
+      getters: {
+        modal: (state) => {
+          return state;
+        },
+        modal_isVisible: (state) => {
+          return state._isVisible;
+        },
+      },
+      mutations: {
+        modalOpen(state) {
+          return (state._isVisible = true);
+        },
+        modalClose(state) {
+          return (state._isVisible = false);
+        },
+        modalToggle(state, value) {
+          return (state._isVisible = value);
         },
       },
     },

@@ -96,8 +96,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { User } from "@/classes/User";
-import { globalStore } from "@/main";
 export default Vue.extend({
   name: "FormRegister",
   data: () => ({
@@ -142,16 +140,8 @@ export default Vue.extend({
           email: this.email,
           password: btoa(this.password),
         };
-        console.log(userRegisterDatas);
 
-        this.$store.commit("update", userRegisterDatas);
-        this.$store.commit("connect");
-
-        // globalStore.user.company = this.company;
-        // globalStore.user.firstName = this.firstName;
-        // globalStore.user.lastName = this.lastName;
-        // globalStore.user.email = this.email;
-        // globalStore.user.password = btoa(this.password); // just for fun btoa & atob base64 encryption
+        this.$store.commit("userUpdate", userRegisterDatas);
 
         setTimeout(() => {
           this.toggleLoading();
@@ -159,7 +149,7 @@ export default Vue.extend({
 
         setTimeout(() => {
           this.toggleLoading();
-          globalStore.user.isConnected = true;
+          this.$store.commit("userConnect");
         }, 1350);
       }
     },
@@ -175,9 +165,6 @@ export default Vue.extend({
     isLoading() {
       return () => this.loading;
     },
-    // registerForm(): Vue & { validate: () => boolean } {
-    //   return this.$refs.registerForm as Vue & { validate: () => boolean }
-    // }
   },
 });
 </script>

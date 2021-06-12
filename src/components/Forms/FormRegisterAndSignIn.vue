@@ -30,7 +30,6 @@
 import Vue from "vue";
 import FormSignIn from "./FormSignIn.vue";
 import FormRegister from "./FormRegister.vue";
-import { globalStore } from "@/main";
 export default Vue.extend({
   name: "FormRegisterAndSignIn",
   components: { FormRegister, FormSignIn },

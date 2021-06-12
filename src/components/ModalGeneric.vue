@@ -23,14 +23,13 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { globalStore } from "@/main.ts";
 import FormSignIn from "@/components/Forms/FormSignIn.vue";
 export default Vue.extend({
   name: "ModalGeneric",
-  components: {FormSignIn},
+  components: { FormSignIn },
   data() {
     return {
-      modal: globalStore.dialog.visible,
+      modal: this.$store.getters.modal._isVisible,
     };
   },
   props: {
@@ -45,42 +44,16 @@ export default Vue.extend({
       this.$emit("close");
     },
     closeModal() {
-      globalStore.dialog.visible = false;
-      globalStore.dialog.header = "";
-      console.log( globalStore.dialog );
+      this.$store.commit("modalClose");
     },
   },
   computed: {
     callModal: {
       get() {
-        return globalStore.dialog.visible;
+        return this.$store.getters.modal_isVisible;
       },
-      set(value: boolean) {
-        globalStore.dialog.visible = value;
-      },
-    },
-    callHeader: {
-      get() {
-        return globalStore.dialog.header;
-      },
-      set(value: string) {
-        globalStore.dialog.header = value;
-      },
-    },
-    callContent: {
-      get() {
-        return globalStore.dialog.content;
-      },
-      set(value: string) {
-        globalStore.dialog.content = value;
-      },
-    },
-    callFooter: {
-      get() {
-        return globalStore.dialog.footer;
-      },
-      set(value: string) {
-        globalStore.dialog.footer = value;
+      set() {
+        this.$store.modal.commit("modalOpen");
       },
     },
   },
